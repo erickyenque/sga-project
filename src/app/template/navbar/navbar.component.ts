@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import StorageEnum from 'src/app/types/enumeration/StorageEnum';
+import Storage from 'src/app/utils/Storage';
 
 @Component({
   selector: 'template-navbar',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private storage: Storage,
+    private router: Router
+  ) { 
+    this.storage = Storage.getInstance();
+  }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    this.storage.removeItem(StorageEnum.SESSION_SGA);
+    this.router.navigate(['login']);
+  }
 }

@@ -17,6 +17,8 @@ import { GCoursesComponent } from './g-courses/g-courses.component';
 import { UsersComponent } from './users/users.component';
 import { GUsersComponent } from './g-users/g-users.component';
 import { RDashboardComponent } from './r-dashboard/r-dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import { RDashboardComponent } from './r-dashboard/r-dashboard.component';
     BrowserModule,
     DashboardModule,
     AppRoutingModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

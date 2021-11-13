@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import StorageEnum from 'src/app/types/enumeration/StorageEnum';
+import { LoginResponse } from 'src/app/types/response/LoginResponse';
+import Storage from 'src/app/utils/Storage';
 
 @Component({
   selector: 'template-sidebar',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  login: LoginResponse;
 
-  ngOnInit(): void {
+  constructor(
+    private storage: Storage
+  ) { 
+    this.storage = Storage.getInstance();
   }
 
+  ngOnInit(): void {
+    this.getSession();
+  }
+
+  getSession() {
+    this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
+  }
 }

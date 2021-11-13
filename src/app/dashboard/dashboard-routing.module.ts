@@ -3,14 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { CoursesComponent } from '../courses/courses.component';
 import { GCoursesComponent } from '../g-courses/g-courses.component';
 import { GUsersComponent } from '../g-users/g-users.component';
+import { AuthGuard } from '../guards/auth.guard';
 import { RDashboardComponent } from '../r-dashboard/r-dashboard.component';
 import { UsersComponent } from '../users/users.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: '', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
     children: [
+      {
+        path: 'dashboard', component: RDashboardComponent
+      },
       {
         path: '', component: RDashboardComponent
       }
@@ -18,6 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'courses', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'add', component: CoursesComponent
@@ -29,6 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'users', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'add', component: UsersComponent

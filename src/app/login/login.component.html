@@ -3,19 +3,21 @@
         <div class="container">
             <div class="flex__login">
                 <div class="form__login">
-                    <img src="../../assets/minpub.png" alt="" class="img-fluid">
+                    <div class="col text-center">
+                        <img src="assets/imgs/college.png" alt="" class="img-fluid text-center" width="100">
+                    </div>
                     <h3 class="font-weight-bold text-center">SGA - Web</h3>
                     <p class="text-center mb-4"><small>Sistema de Gestión Académica</small></p>
                     <div class="mb-3">
                         <label for="inputUser" class="form-label">Nombre de usuario:</label>
-                        <input type="text" class="form-control" >
+                        <input type="text" class="form-control" [(ngModel)]="login.nickname">
                     </div>
                     <div class="mb-3">
                         <label for="inputPassword" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" [(ngModel)]="login.password">
                     </div>
                     <div class="col text-center">
-                        <button type="button" class="btn btn-dark" (click)="onNavigate()">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-dark" (click)="onLogin()">Iniciar Sesión</button>
                     </div>
                 </div>
             </div>
