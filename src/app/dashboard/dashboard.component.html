@@ -6,23 +6,121 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <li class="nav-item">
-                        <a href="./index.html" class="nav-link">
+                        <a href="/dashboard" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
+                            <p>Panel de control</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="./index.html" class="nav-link">
-                            <i class="nav-icon fas fa-desktop"></i>
-                            <p>Monitoreo</p>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Usuarios
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="users/add" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Crear Usuarios</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="users/management" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Gestionar Usuarios</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user-graduate"></i>
+                            <p>
+                                Estudiantes
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/tables/simple.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Agregar Estudiantes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/data.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Gestionar Estudiantes</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>
+                                Años de Clase
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/tables/simple.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Añadir Años de Clase</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/data.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Editar Años de Clase</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>
+                                Materias
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="courses/add" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Crear Materias</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="courses/edit" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Editar Materias</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/data.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Asignar Materias/Año</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/tables/data.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Editar Materias/Año </p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
         </div>
     </template-sidebar>
     <div template-wrapper class="content-wrapper">
-
+        <router-outlet></router-outlet>
     </div>
     <!-- /.col -->
     <template-footer template-footer class="main-footer"></template-footer>
