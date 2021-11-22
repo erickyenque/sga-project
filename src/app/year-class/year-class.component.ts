@@ -24,10 +24,20 @@ export class YearClassComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clearFields() {
+    this.year = {
+      nombre: "",
+      numero: "",
+      seccion: "",
+      turno: ""
+    }
+  }
+
   addYear() {
     this.anioService.addAnio(this.year).subscribe(response => {
       if (response.success) {
         toastr.success('Año agregado!');
+        this.clearFields();
       } else {
         toastr.error('Error al guardar');
       }
