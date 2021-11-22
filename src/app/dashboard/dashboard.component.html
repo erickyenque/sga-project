@@ -11,7 +11,7 @@
                             <p>Panel de control</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR'">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>
@@ -34,7 +34,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview" *ngIf="login.role !== 'DOCENTE'">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-graduate"></i>
                             <p>
@@ -57,7 +57,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview" *ngIf="login.role !== 'DOCENTE'">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file-alt"></i>
                             <p>
@@ -67,20 +67,20 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="pages/tables/simple.html" class="nav-link">
+                                <a href="/years/add" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Añadir Años de Clase</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/data.html" class="nav-link">
+                                <a href="/years/management" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Editar Años de Clase</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview" *ngIf="login.role !== 'DOCENTE'">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file-alt"></i>
                             <p>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import StorageEnum from '../types/enumeration/StorageEnum';
+import { LoginResponse } from '../types/response/LoginResponse';
+import Storage from '../utils/Storage';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {
+  login: LoginResponse;
+
+  constructor(
+    private storage: Storage
+  ) { 
+    this.storage = Storage.getInstance();
   }
 
   ngOnInit(): void {
+    this.getSession();
+  }
+
+  getSession() {
+    this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
   }
 
 }

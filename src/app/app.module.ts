@@ -19,6 +19,8 @@ import { GUsersComponent } from './g-users/g-users.component';
 import { RDashboardComponent } from './r-dashboard/r-dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { YearClassComponent } from './year-class/year-class.component';
+import { GYearClassComponent } from './g-year-class/g-year-class.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GCoursesComponent,
     UsersComponent,
     GUsersComponent,
-    RDashboardComponent
+    RDashboardComponent,
+    YearClassComponent,
+    GYearClassComponent
   ],
   imports: [
     BrowserModule,
