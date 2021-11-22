@@ -30,10 +30,26 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clearFields() {
+    this.user = {
+      dni: "",
+      nombres: "",
+      apePaterno: "",
+      apeMaterno: "",
+      direccion: "",
+      referencia: "",
+      genero: "",
+      nickname: "",
+      password: "",
+      role: ""
+    }
+  }
+
   addUser() {
     this.userService.addUsuario(this.user).subscribe(response => {
       if(response.success) {
         toastr.success("Usuario agregado!");
+        this.clearFields();
       }
     });
   }
