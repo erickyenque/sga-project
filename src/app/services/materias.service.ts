@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServerConfig } from '../config/ServerConfig';
 import { MateriaRequest } from '../types/request/MateriaRequest';
@@ -25,5 +25,17 @@ export class MateriasService {
 
   listMaterias() {
     return this.http.get<SgaResponse<MateriaResponse>>(ServerConfig.getUrl(this.controller, 'listar'));
+  }
+
+  datosMateria(codigo) {
+    const params = new HttpParams().set('codigo', codigo);
+    return this.http.get<SgaResponse<MateriaResponse>>(ServerConfig.getUrl(this.controller, 'datos'), { params: params});
+  }
+
+  editMateria(materia: MateriaResponse) {
+    const formData = new FormData();
+    formData.append('cod_materia', materia.cod_materia);
+    formData.append('nombre', materia.nombre);
+    return this.http.post<SgaResponse<MateriaResponse>>(ServerConfig.getUrl(this.controller, 'editar'), formData);
   }
 }

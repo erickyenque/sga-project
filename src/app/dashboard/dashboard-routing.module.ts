@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CoursesComponent } from '../courses/courses.component';
+import { EditCoursesComponent } from '../edit-courses/edit-courses.component';
+import { EditUsersComponent } from '../edit-users/edit-users.component';
 import { GCoursesComponent } from '../g-courses/g-courses.component';
 import { GUsersComponent } from '../g-users/g-users.component';
 import { GYearClassComponent } from '../g-year-class/g-year-class.component';
@@ -31,7 +33,10 @@ const routes: Routes = [
         path: 'add', component: CoursesComponent
       },
       {
-        path: 'edit', component: GCoursesComponent
+        path: 'management', component: GCoursesComponent
+      },
+      {
+        path: 'edit/:codigo', component: EditCoursesComponent
       }
     ],  
   },
@@ -44,6 +49,9 @@ const routes: Routes = [
       },
       {
         path: 'management', component: GUsersComponent
+      },
+      {
+        path: 'edit/:id', component: EditUsersComponent
       }
     ], 
   },

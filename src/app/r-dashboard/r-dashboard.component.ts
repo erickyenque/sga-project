@@ -11,8 +11,8 @@ import { YearResponse } from '../types/response/YearReponse';
 })
 export class RDashboardComponent implements OnInit {
 
-  materias: number;
-  years: number;
+  materias: number = 0;
+  years: number = 0;
 
   constructor(
     private materiaService: MateriasService,

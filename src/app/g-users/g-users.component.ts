@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { UserResponse } from '../types/response/UserResponse';
+declare var $: any;
 
 @Component({
   selector: 'app-g-users',
@@ -19,10 +20,17 @@ export class GUsersComponent implements OnInit {
     this.getList();
   }
 
+  setConfigM() {
+    $(function () {
+      $("#example1").DataTable();
+    });
+  }
+
   getList() {
     this.userService.listUsuarios().subscribe(response => {
       if(response.success) {
         this.users = response.data;
+        this.setConfigM();
       }
     })
   }
