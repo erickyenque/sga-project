@@ -23,6 +23,11 @@ import { YearClassComponent } from './year-class/year-class.component';
 import { GYearClassComponent } from './g-year-class/g-year-class.component';
 import { EditUsersComponent } from './edit-users/edit-users.component';
 import { EditCoursesComponent } from './edit-courses/edit-courses.component';
+import { RegisterComponent } from './register/register.component';
+import { GStudentsComponent } from './g-students/g-students.component';
+import { EditYearClassComponent } from './edit-year-class/edit-year-class.component';
+import { StudentComponent } from './student/student.component';
+import { EditStudentsComponent } from './edit-students/edit-students.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { EditCoursesComponent } from './edit-courses/edit-courses.component';
     YearClassComponent,
     GYearClassComponent,
     EditUsersComponent,
-    EditCoursesComponent
+    EditCoursesComponent,
+    RegisterComponent,
+    GStudentsComponent,
+    EditYearClassComponent,
+    StudentComponent,
+    EditStudentsComponent
   ],
   imports: [
     BrowserModule,

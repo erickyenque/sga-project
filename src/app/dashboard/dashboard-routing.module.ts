@@ -3,11 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { CoursesComponent } from '../courses/courses.component';
 import { EditCoursesComponent } from '../edit-courses/edit-courses.component';
 import { EditUsersComponent } from '../edit-users/edit-users.component';
+import { EditYearClassComponent } from '../edit-year-class/edit-year-class.component';
 import { GCoursesComponent } from '../g-courses/g-courses.component';
+import { GStudentsComponent } from '../g-students/g-students.component';
 import { GUsersComponent } from '../g-users/g-users.component';
 import { GYearClassComponent } from '../g-year-class/g-year-class.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { RDashboardComponent } from '../r-dashboard/r-dashboard.component';
+import { StudentComponent } from '../student/student.component';
 import { UsersComponent } from '../users/users.component';
 import { YearClassComponent } from '../year-class/year-class.component';
 import { DashboardComponent } from './dashboard.component';
@@ -56,6 +59,18 @@ const routes: Routes = [
     ], 
   },
   {
+    path: 'students', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: 'add', component: StudentComponent
+      },
+      {
+        path: 'management', component: GStudentsComponent
+      }
+    ]
+  },
+  {
     path: 'years', component: DashboardComponent,
     canActivateChild: [AuthGuard],
     children: [
@@ -64,6 +79,9 @@ const routes: Routes = [
       },
       {
         path: 'management', component: GYearClassComponent
+      },
+      {
+        path: 'edit/:id', component: EditYearClassComponent
       }
     ]
   }

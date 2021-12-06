@@ -1,0 +1,64 @@
+<div class="layout">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-md-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>MATRICULA</h3>
+                        <img src="assets/imgs/college.png" alt="" class="img-fluid text-center" width="100">
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Dni</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Dni" [(ngModel)]="user.dni">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Nombres</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Nombres" [(ngModel)]="user.nombres">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Apellido Paterno</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Apellido Paterno" [(ngModel)]="user.apePaterno">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Apellido Materno</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Apellido Materno" [(ngModel)]="user.apeMaterno">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Dirección" [(ngModel)]="user.direccion">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Referencia</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Referencia" [(ngModel)]="user.referencia">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Género</label>
+                                <select class="form-control" [(ngModel)]="user.genero">
+                                  <option value="M">MASCULINO</option>
+                                  <option value="F">FEMENINO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>AÑO</label>
+                                <select class="form-control" [(ngModel)]="user.id_anio">
+                                  <option [value]="year.id_anio" *ngFor="let year of years">{{year.nombre}} - {{year.numero}} - {{year.seccion}} - {{year.turno}}</option>
+                                </select>
+                            </div>               
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary" style="width: 100px;" (click)="addUser()">ENVIAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

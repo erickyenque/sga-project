@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Gestionar Estudiantes</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Dirección</th>
+                        <th>Fecha Registro</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{user.nombres}}</td>
+                        <td>{{user.apePaterno}} {{user.apeMaterno}}</td>
+                        <td>{{user.direccion}}</td>
+                        <td>{{user.fecha_registro}}</td>
+                        <td>
+                            <a class="btn btn-info" href="/users/edit/{{user.id_persona}}"><i class="fas fa-edit"></i></a>
+                        </td>
+                    </tr>
+                </tbody>  
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>

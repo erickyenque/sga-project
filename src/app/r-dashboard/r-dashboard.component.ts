@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnioService } from '../services/anio.service';
 import { MateriasService } from '../services/materias.service';
+import { UserService } from '../services/user.service';
 import { MateriaResponse } from '../types/response/MateriaResponse';
 import { YearResponse } from '../types/response/YearReponse';
 
@@ -13,10 +14,12 @@ export class RDashboardComponent implements OnInit {
 
   materias: number = 0;
   years: number = 0;
+  students: number = 0;
 
   constructor(
     private materiaService: MateriasService,
-    private anioService: AnioService
+    private anioService: AnioService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +36,12 @@ export class RDashboardComponent implements OnInit {
     this.materiaService.listMaterias().subscribe(response => {
       if (response.success) {
         this.materias = response.data.length;
+      }
+    })
+
+    this.userService.listEstudiantes().subscribe(response => {
+      if (response.success) {
+        this.students = response.data.length;
       }
     })
   }

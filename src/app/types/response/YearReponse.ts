@@ -5,4 +5,5 @@ export interface YearResponse {
     seccion: string;
     fecha: string;
     turno: string;
+    id_anio: number;
 }

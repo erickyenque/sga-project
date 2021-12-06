@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AnioService } from '../services/anio.service';
 import { YearResponse } from '../types/response/YearReponse';
 
@@ -12,7 +13,8 @@ export class GYearClassComponent implements OnInit {
   years: YearResponse[]
 
   constructor(
-    private anioService: AnioService
+    private anioService: AnioService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +27,10 @@ export class GYearClassComponent implements OnInit {
         this.years = response.data;
       }
     });
+  }
+
+  navigate(year: YearResponse) {
+    this.router.navigate(['/years/edit', year.id_año]);
   }
 
 }

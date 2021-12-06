@@ -8,5 +8,6 @@ export interface UserRequest {
     genero: string,
     nickname: string,
     password: string,
-    role: string
+    role: string,
+    id_anio?: string
 }
