@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>Gestionar Estudiantes</h3>
+            <h3>Gestionar Matriculas</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -11,8 +11,8 @@
                         <th>#</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
-                        <th>Dirección</th>
                         <th>Fecha Registro</th>
+                        <th>Estado</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
@@ -20,11 +20,14 @@
                     <tr *ngFor="let user of users; let i = index;">
                         <td>{{i+1}}</td>
                         <td>{{user.nombres}}</td>
-                        <td>{{user.apePaterno}} {{user.apeMaterno}}</td>
-                        <td>{{user.direccion}}</td>
+                        <td>{{user.apePaterno}} {{user.apeMaterno}}</td>                        
                         <td>{{user.fecha_registro}}</td>
                         <td>
-                            <a class="btn btn-info" href="/users/edit/{{user.id_persona}}"><i class="fas fa-edit"></i></a>
+                            <div class="badge badge-warning" *ngIf="user.estado === 'PENDIENTE'">{{user.estado}}</div>
+                            <div class="badge badge-success" *ngIf="user.estado === 'MATRICULADO'">{{user.estado}}</div>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" href="/students/edit/{{user.id_persona}}"><i class="fas fa-edit"></i></a>
                         </td>
                     </tr>
                 </tbody>  

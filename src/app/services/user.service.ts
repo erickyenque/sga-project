@@ -7,6 +7,7 @@ import { UserResponse } from '../types/response/UserResponse';
 import { DatosResponse } from '../types/response/DatosResponse';
 import { EditUserRequest } from '../types/request/EditUserRequest';
 import { EditUsersComponent } from '../edit-users/edit-users.component';
+import { StudentResponse } from '../types/response/StudentResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,11 @@ export class UserService {
   datosUsuario(id) {
     const params = new HttpParams().set('id', id);
     return this.http.get<SgaResponse<DatosResponse>>(ServerConfig.getUrl(this.controller, 'datos'), { params: params });
+  }
+
+  datosEstudiante(id) {
+    const params = new HttpParams().set('id', id);
+    return this.http.get<SgaResponse<StudentResponse>>(ServerConfig.getUrl(this.controller, 'estudiante'), { params: params });
   }
 
   editUsuarios(user: EditUserRequest) {
