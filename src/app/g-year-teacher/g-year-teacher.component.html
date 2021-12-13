@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Docente/Año</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Año</th>
+                        <th>Docente</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let teachersYear of teachersYear; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{teachersYear.nombre_anio}} - {{teachersYear.turno}} - {{teachersYear.seccion}}</td>
+                        <td>{{teachersYear.nombres}} {{teachersYear.apePaterno}} {{teachersYear.apeMaterno}}</td>
+                        <td>
+                            <a class="btn btn-info" href="#"><i class="fas fa-edit"></i></a>
+                        </td>
+                    </tr>
+                </tbody>  
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>

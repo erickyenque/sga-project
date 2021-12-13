@@ -38,7 +38,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-graduate"></i>
                             <p>
-                                Matricula
+                                Estudiantes/Matricula
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -53,6 +53,29 @@
                                 <a href="students/management" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Gestionar Matriculas</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview" *ngIf="login.role !== 'DOCENTE'">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                            <p>
+                                Docentes
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="teachers/add" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Asignar Docentes/Año</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="teachers/management" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Editar Docentes/Año</p>
                                 </a>
                             </li>
                         </ul>
@@ -102,13 +125,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/data.html" class="nav-link">
+                                <a href="courses/add-year" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Asignar Materias/Año</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/tables/data.html" class="nav-link">
+                                <a href="courses/management-year" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Editar Materias/Año </p>
                                 </a>

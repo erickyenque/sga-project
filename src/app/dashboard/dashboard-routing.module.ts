@@ -9,11 +9,15 @@ import { GCoursesComponent } from '../g-courses/g-courses.component';
 import { GStudentsComponent } from '../g-students/g-students.component';
 import { GUsersComponent } from '../g-users/g-users.component';
 import { GYearClassComponent } from '../g-year-class/g-year-class.component';
+import { GYearCourseComponent } from '../g-year-course/g-year-course.component';
+import { GYearTeacherComponent } from '../g-year-teacher/g-year-teacher.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { RDashboardComponent } from '../r-dashboard/r-dashboard.component';
 import { StudentComponent } from '../student/student.component';
+import { TeacherComponent } from '../teacher/teacher.component';
 import { UsersComponent } from '../users/users.component';
 import { YearClassComponent } from '../year-class/year-class.component';
+import { YearCourseComponent } from '../year-course/year-course.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -41,8 +45,14 @@ const routes: Routes = [
       },
       {
         path: 'edit/:codigo', component: EditCoursesComponent
-      }
-    ],  
+      },
+      {
+        path: 'add-year', component: YearCourseComponent
+      },
+      {
+        path: 'management-year', component: GYearCourseComponent
+      },
+    ],
   },
   {
     path: 'users', component: DashboardComponent,
@@ -57,7 +67,22 @@ const routes: Routes = [
       {
         path: 'edit/:id', component: EditUsersComponent
       }
-    ], 
+    ],
+  },
+  {
+    path: 'teachers', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: 'add', component: TeacherComponent
+      },
+      {
+        path: 'management', component: GYearTeacherComponent
+      },
+      {
+        path: 'edit/:id', component: EditUsersComponent
+      }
+    ],
   },
   {
     path: 'students', component: DashboardComponent,

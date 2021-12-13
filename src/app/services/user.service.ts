@@ -43,6 +43,10 @@ export class UserService {
     return this.http.get<SgaResponse<UserResponse>>(ServerConfig.getUrl(this.controller, 'estudiantes'));
   }
 
+  listDocentes() {
+    return this.http.get<SgaResponse<DatosResponse>>(ServerConfig.getUrl(this.controller, 'docentes'));
+  }
+
   datosUsuario(id) {
     const params = new HttpParams().set('id', id);
     return this.http.get<SgaResponse<DatosResponse>>(ServerConfig.getUrl(this.controller, 'datos'), { params: params });
