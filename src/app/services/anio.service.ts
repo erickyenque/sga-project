@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServerConfig } from '../config/ServerConfig';
 import { YearRequest } from '../types/request/YearRequest';
+import { MateriasYearResponse } from '../types/response/MateriasYearResponse';
 import { SgaResponse } from '../types/response/SgaResponse';
 import { YearResponse } from '../types/response/YearReponse';
 
@@ -45,4 +46,8 @@ export class AnioService {
     return this.http.post<SgaResponse<YearResponse>>(ServerConfig.getUrl(this.controller, 'editar'), formData);
   }
 
+  getMaterias(codigo) {
+    const params = new HttpParams().set('id_año', codigo);
+    return this.http.get<SgaResponse<MateriasYearResponse>>(ServerConfig.getUrl(this.controller, 'materias'), { params: params});
+  }
 }

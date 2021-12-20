@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { CoursesComponent } from '../courses/courses.component';
 import { EditCoursesComponent } from '../edit-courses/edit-courses.component';
 import { EditStudentsComponent } from '../edit-students/edit-students.component';
+import { EditTeacherCourseComponent } from '../edit-teacher-course/edit-teacher-course.component';
 import { EditUsersComponent } from '../edit-users/edit-users.component';
 import { EditYearClassComponent } from '../edit-year-class/edit-year-class.component';
+import { EditYearCourseComponent } from '../edit-year-course/edit-year-course.component';
 import { GCoursesComponent } from '../g-courses/g-courses.component';
 import { GStudentsComponent } from '../g-students/g-students.component';
 import { GUsersComponent } from '../g-users/g-users.component';
@@ -52,6 +54,9 @@ const routes: Routes = [
       {
         path: 'management-year', component: GYearCourseComponent
       },
+      {
+        path: 'edit-year', component: EditYearCourseComponent
+      },
     ],
   },
   {
@@ -80,7 +85,7 @@ const routes: Routes = [
         path: 'management', component: GYearTeacherComponent
       },
       {
-        path: 'edit/:id', component: EditUsersComponent
+        path: 'edit/:id', component: EditTeacherCourseComponent
       }
     ],
   },

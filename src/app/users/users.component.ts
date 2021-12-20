@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { UserRequest } from '../types/request/UserRequest';
 import * as toastr from 'toastr';
+import Storage from '../utils/Storage';
+import { LoginResponse } from '../types/response/LoginResponse';
+import StorageEnum from '../types/enumeration/StorageEnum';
 
 @Component({
   selector: 'app-users',
@@ -23,11 +26,17 @@ export class UsersComponent implements OnInit {
     role: ""
   }
 
+  login: LoginResponse;
+
   constructor(
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private storage: Storage
+  ) { 
+    this.storage = Storage.getInstance();
+  }
 
   ngOnInit(): void {
+    this.getSession();
   }
 
   clearFields() {
@@ -52,5 +61,9 @@ export class UsersComponent implements OnInit {
         this.clearFields();
       }
     });
+  }
+
+  getSession() {
+    this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
   }
 }

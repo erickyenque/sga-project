@@ -1,7 +1,8 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>Gestionar Usuarios</h3>
+            <h3 *ngIf="login.role == 'DIRECTOR'">Gestionar Usuarios</h3>
+            <h3 *ngIf="login.role == 'SECRETARIA'">Gestionar Estudiantes</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">

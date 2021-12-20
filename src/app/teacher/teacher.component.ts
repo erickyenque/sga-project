@@ -6,6 +6,7 @@ import { TeacherYearRequest } from '../types/request/TeacherYearRequest';
 import { DatosResponse } from '../types/response/DatosResponse';
 import { YearResponse } from '../types/response/YearReponse';
 import * as toastr from 'toastr';
+import { MateriasYearResponse } from '../types/response/MateriasYearResponse';
 
 @Component({
   selector: 'app-teacher',
@@ -16,11 +17,13 @@ export class TeacherComponent implements OnInit {
 
   teacherYear: TeacherYearRequest = {
     id_anio: "",
+    id_anio_materia: "",
     id_docente: ""
   };
 
   docentes: DatosResponse[];
   years: YearResponse[];
+  materias: MateriasYearResponse[];
 
   constructor(
     private anioService: AnioService,
@@ -63,6 +66,18 @@ export class TeacherComponent implements OnInit {
       if (response.success) {
         toastr.success("Usuario agregado!");
         this.clearFields();
+      }
+    })
+  }
+
+  onChange($event) {
+    this.anioService.getMaterias(this.teacherYear.id_anio).subscribe(response => {
+      if(response.success) {
+        this.materias = response.data;
+        this.materias = this.materias.map(year => {
+          year.id_anio_materia = year.id_año_materia;
+          return year;
+        })
       }
     })
   }

@@ -43,12 +43,21 @@ export class UserService {
     return this.http.get<SgaResponse<UserResponse>>(ServerConfig.getUrl(this.controller, 'estudiantes'));
   }
 
+  listEstudiantes2() {
+    return this.http.get<SgaResponse<UserResponse>>(ServerConfig.getUrl(this.controller, 'estudiantes2'));
+  }
+
   listDocentes() {
     return this.http.get<SgaResponse<DatosResponse>>(ServerConfig.getUrl(this.controller, 'docentes'));
   }
 
   datosUsuario(id) {
     const params = new HttpParams().set('id', id);
+    return this.http.get<SgaResponse<DatosResponse>>(ServerConfig.getUrl(this.controller, 'datos'), { params: params });
+  }
+
+  datosUsuarioxDni(dni) {
+    const params = new HttpParams().set('dni', dni);
     return this.http.get<SgaResponse<DatosResponse>>(ServerConfig.getUrl(this.controller, 'datos'), { params: params });
   }
 

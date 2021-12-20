@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServerConfig } from '../config/ServerConfig';
+import { MatricularRequest } from '../types/request/MatricularRequest';
 import { SgaResponse } from '../types/response/SgaResponse';
 import { StudentResponse } from '../types/response/StudentResponse';
 
@@ -28,5 +29,14 @@ export class MatriculaService {
     formData.append('pago', student.pago);
     formData.append('id_año', student.id_anio);
     return this.http.post<SgaResponse<StudentResponse>>(ServerConfig.getUrl(this.controller, 'finalizar'), formData);
+  }
+
+  matricularEstudiante(student: MatricularRequest) {
+    const formData = new FormData();
+    formData.append('id_estudiante', student.id_estudiante);
+    formData.append('pago', student.pago);
+    formData.append('estado', student.estado);
+    formData.append('id_año', student.id_anio);
+    return this.http.post<SgaResponse<StudentResponse>>(ServerConfig.getUrl('usuarios', 'matricularEstudiante'), formData);
   }
 }

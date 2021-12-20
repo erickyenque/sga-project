@@ -28,6 +28,7 @@
                         </td>
                         <td>
                             <a class="btn btn-info" href="/students/edit/{{user.id_persona}}"><i class="fas fa-edit"></i></a>
+                            <button class="btn btn-success ml-1" (click)="download(user.id_persona)" *ngIf="user.estado === 'MATRICULADO'"><i class="fas fa-file-pdf"></i></button>
                         </td>
                     </tr>
                 </tbody>  

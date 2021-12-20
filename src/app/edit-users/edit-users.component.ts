@@ -4,6 +4,9 @@ import { UserService } from '../services/user.service';
 import { EditUserRequest } from '../types/request/EditUserRequest';
 import { DatosResponse } from '../types/response/DatosResponse';
 import * as toastr from 'toastr';
+import { LoginResponse } from '../types/response/LoginResponse';
+import Storage from '../utils/Storage';
+import StorageEnum from '../types/enumeration/StorageEnum';
 
 @Component({
   selector: 'app-edit-users',
@@ -18,12 +21,18 @@ export class EditUsersComponent implements OnInit {
 
   user: DatosResponse = null;
 
+  login: LoginResponse;
+
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private storage: Storage
+  ) { 
+    this.storage = Storage.getInstance();
+  }
 
   ngOnInit(): void {
+    this.getSession();
     this.getParamsId();
   }
 
@@ -55,5 +64,9 @@ export class EditUsersComponent implements OnInit {
         toastr.error("Hubo un problema!");
       }
     })
+  }
+
+  getSession() {
+    this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
   }
 }

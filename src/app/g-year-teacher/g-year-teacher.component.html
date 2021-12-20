@@ -9,18 +9,18 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Año</th>
                         <th>Docente</th>
+                        <th>Fecha</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let teachersYear of teachersYear; let i = index;">
                         <td>{{i+1}}</td>
-                        <td>{{teachersYear.nombre_anio}} - {{teachersYear.turno}} - {{teachersYear.seccion}}</td>
                         <td>{{teachersYear.nombres}} {{teachersYear.apePaterno}} {{teachersYear.apeMaterno}}</td>
+                        <td>{{teachersYear.fecha}}</td>
                         <td>
-                            <a class="btn btn-info" href="#"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-info" href="teachers/edit/{{teachersYear.id_docente}}"><i class="fas fa-edit"></i></a>
                         </td>
                     </tr>
                 </tbody>  

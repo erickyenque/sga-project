@@ -32,6 +32,8 @@ import { YearCourseComponent } from './year-course/year-course.component';
 import { GYearCourseComponent } from './g-year-course/g-year-course.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { GYearTeacherComponent } from './g-year-teacher/g-year-teacher.component';
+import { EditYearCourseComponent } from './edit-year-course/edit-year-course.component';
+import { EditTeacherCourseComponent } from './edit-teacher-course/edit-teacher-course.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { GYearTeacherComponent } from './g-year-teacher/g-year-teacher.component
     YearCourseComponent,
     GYearCourseComponent,
     TeacherComponent,
-    GYearTeacherComponent
+    GYearTeacherComponent,
+    EditYearCourseComponent,
+    EditTeacherCourseComponent
   ],
   imports: [
     BrowserModule,

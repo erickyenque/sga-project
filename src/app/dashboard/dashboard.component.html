@@ -11,25 +11,37 @@
                             <p>Panel de control</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR'">
+                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
-                            <p>
+                            <p *ngIf="login.role === 'DIRECTOR'">
                                 Usuarios
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                            <p *ngIf="login.role === 'SECRETARIA'">
+                                Estudiantes
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="users/add" class="nav-link">
+                                <a href="users/add" class="nav-link" *ngIf="login.role === 'DIRECTOR'">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Crear Usuarios</p>
                                 </a>
+                                <a href="users/add" class="nav-link" *ngIf="login.role === 'SECRETARIA'">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Crear Estudiantes</p>
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a href="users/management" class="nav-link">
+                                <a href="users/management" class="nav-link" *ngIf="login.role === 'DIRECTOR'">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Gestionar Usuarios</p>
+                                </a>
+                                <a href="users/management" class="nav-link" *ngIf="login.role === 'SECRETARIA'">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Gestionar Estudiantes</p>
                                 </a>
                             </li>
                         </ul>
@@ -38,7 +50,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-graduate"></i>
                             <p>
-                                Estudiantes/Matricula
+                                Matricula
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>

@@ -1,4 +1,6 @@
 export interface UserRequest {
+    id?: number,
+    id_persona?: number,
     dni: string,
     nombres: string,
     apePaterno: string,
@@ -9,5 +11,6 @@ export interface UserRequest {
     nickname: string,
     password: string,
     role: string,
-    id_anio?: string
+    id_anio?: string,
+    pago?: string
 }
