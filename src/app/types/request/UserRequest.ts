@@ -12,5 +12,6 @@ export interface UserRequest {
     password: string,
     role: string,
     id_anio?: string,
-    pago?: string
+    pago?: string,
+    monto?: number
 }

@@ -17,6 +17,7 @@ export interface StudentResponse {
     id_matricula: string,
     fecha: string,
     pago: string,
+    monto: number,
     id_estudiante: string,
     id_año: string,
     nombre: string,

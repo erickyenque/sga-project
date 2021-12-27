@@ -6,4 +6,5 @@ export interface YearResponse {
     fecha: string;
     turno: string;
     id_anio: number;
+    nivel: string;
 }

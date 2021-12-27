@@ -28,7 +28,8 @@ export class StudentComponent implements OnInit {
     password: "",
     role: "",
     id_anio: "",
-    pago: ""
+    pago: "",
+    monto: 0
   }
 
   constructor(
@@ -80,6 +81,7 @@ export class StudentComponent implements OnInit {
     let student: MatricularRequest = {
       id_estudiante: this.user.id_persona.toString(),
       id_anio: this.user.id_anio,
+      monto: this.user.monto,
       pago: this.user.pago,
       estado: this.user.pago == '0'? 'PENDIENTE': 'MATRICULADO'
     }

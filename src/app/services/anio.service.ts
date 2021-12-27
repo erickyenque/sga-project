@@ -23,6 +23,7 @@ export class AnioService {
     formData.append('numero', year.numero);
     formData.append('seccion', year.seccion);
     formData.append('turno', year.turno);
+    formData.append('nivel', year.nivel);
     return this.http.post<SgaResponse<YearRequest>>(ServerConfig.getUrl(this.controller, 'agregar'), formData);
   }
 

@@ -14,7 +14,8 @@ export class YearClassComponent implements OnInit {
     nombre: "",
     numero: "",
     seccion: "",
-    turno: ""
+    turno: "",
+    nivel: ""
   }
 
   constructor(
@@ -29,7 +30,8 @@ export class YearClassComponent implements OnInit {
       nombre: "",
       numero: "",
       seccion: "",
-      turno: ""
+      turno: "",
+      nivel: ""
     }
   }
 

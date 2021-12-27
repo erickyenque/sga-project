@@ -27,6 +27,7 @@ export class MatriculaService {
     formData.append('referencia', student.referencia);
     formData.append('genero', student.genero);
     formData.append('pago', student.pago);
+    formData.append('monto', student.monto.toString());
     formData.append('id_año', student.id_anio);
     return this.http.post<SgaResponse<StudentResponse>>(ServerConfig.getUrl(this.controller, 'finalizar'), formData);
   }
@@ -35,6 +36,7 @@ export class MatriculaService {
     const formData = new FormData();
     formData.append('id_estudiante', student.id_estudiante);
     formData.append('pago', student.pago);
+    formData.append('monto', student.monto.toString());
     formData.append('estado', student.estado);
     formData.append('id_año', student.id_anio);
     return this.http.post<SgaResponse<StudentResponse>>(ServerConfig.getUrl('usuarios', 'matricularEstudiante'), formData);

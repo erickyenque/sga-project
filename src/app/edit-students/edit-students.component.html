@@ -23,19 +23,24 @@
                     <input type="text" class="form-control" placeholder="Apellido Materno"
                         [(ngModel)]="user.apeMaterno" disabled>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-8">
                     <label>AÑO</label>
                     <select class="form-control" [(ngModel)]="user.id_anio" disabled>
                         <option [value]="year.id_anio" *ngFor="let year of years">{{year.nombre}} -
                             GRADO: {{year.numero}} - SECCION: {{year.seccion}} - TURNO: {{year.turno}}</option>
                     </select>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-2">
                     <label>Estado</label>
                     <select class="form-control" [(ngModel)]="user.pago">
                         <option value="0">SIN PAGAR</option>
                         <option value="1">PAGADO</option>
                     </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Monto</label>
+                    <input type="text" class="form-control" value="0"
+                        [(ngModel)]="user.monto">
                 </div>
                 <div class="col-sm-12 text-center">
                     <button class="btn btn-primary" (click)="finalizarMatricula()">ACTUALIZAR MATRICULA</button>

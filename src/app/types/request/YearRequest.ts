@@ -3,4 +3,5 @@ export interface YearRequest {
     numero: string;
     seccion: string;
     turno: string;
+    nivel: string;
 }
