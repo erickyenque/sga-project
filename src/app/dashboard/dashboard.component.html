@@ -74,28 +74,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-file-alt"></i>
-                            <p>
-                                Periodo
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
+                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
+                        <a href="/years/management" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>Gestionar Periodo</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/years/add" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Añadir Periodo</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/years/management" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Editar Periodo</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                         <a href="#" class="nav-link">
