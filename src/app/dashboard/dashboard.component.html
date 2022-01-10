@@ -51,29 +51,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                            <p>
-                                Docentes
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
+                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
+                        <a href="/teachers/management" class="nav-link">
+                            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                            <p>Gestionar Docentes</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="teachers/add" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Asignar Docentes/Año</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="teachers/management" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Editar Docentes/Año</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    </li>                    
                     <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                         <a href="/years/management" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
