@@ -30,6 +30,9 @@
               "node_modules/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",
               "node_modules/admin-lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css",
               "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css",
+              "node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+              "node_modules/admin-lte/plugins/fullcalendar/main.min.css",
+              "src/lib/styles/timetablejs.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -47,7 +50,10 @@
               "node_modules/admin-lte/plugins/datatables-buttons/js/dataTables.buttons.min.js",
               "node_modules/admin-lte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js",
               "node_modules/admin-lte/plugins/daterangepicker/moment.min.js",
-              "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js"
+              "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js",
+              "node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js",
+              "node_modules/admin-lte/plugins/fullcalendar/main.min.js",
+              "src/lib/scripts/timetable.js"
             ]
           },
           "configurations": {

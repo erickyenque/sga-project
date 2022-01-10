@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AnioService } from '../services/anio.service';
 import { MateriasService } from '../services/materias.service';
 import { UserService } from '../services/user.service';
+import StorageEnum from '../types/enumeration/StorageEnum';
+import { LoginResponse } from '../types/response/LoginResponse';
 import { MateriaResponse } from '../types/response/MateriaResponse';
 import { YearResponse } from '../types/response/YearReponse';
+import Storage from '../utils/Storage';
 
 @Component({
   selector: 'app-r-dashboard',
@@ -15,14 +18,19 @@ export class RDashboardComponent implements OnInit {
   materias: number = 0;
   years: number = 0;
   students: number = 0;
+  login: LoginResponse;
 
   constructor(
     private materiaService: MateriasService,
     private anioService: AnioService,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private storage: Storage
+  ) {
+    this.storage = Storage.getInstance();
+  }
 
   ngOnInit(): void {
+    this.getSession();
     this.getData();
   }
 
@@ -44,6 +52,10 @@ export class RDashboardComponent implements OnInit {
         this.students = response.data.length;
       }
     })
+  }
+
+  getSession() {
+    this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
   }
 
 }

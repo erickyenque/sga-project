@@ -2,8 +2,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServerConfig } from '../config/ServerConfig';
 import { YearRequest } from '../types/request/YearRequest';
+import { HorarioResponse } from '../types/response/HorarioResponse';
 import { MateriasYearResponse } from '../types/response/MateriasYearResponse';
 import { SgaResponse } from '../types/response/SgaResponse';
+import { UserResponse } from '../types/response/UserResponse';
 import { YearResponse } from '../types/response/YearReponse';
 
 @Injectable({
@@ -50,5 +52,15 @@ export class AnioService {
   getMaterias(codigo) {
     const params = new HttpParams().set('id_año', codigo);
     return this.http.get<SgaResponse<MateriasYearResponse>>(ServerConfig.getUrl(this.controller, 'materias'), { params: params});
+  }
+
+  getHorario(id_estudiante) {
+    const params = new HttpParams().set('id_estudiante', id_estudiante);
+    return this.http.get<SgaResponse<HorarioResponse>>(ServerConfig.getUrl(this.controller, 'horario'), { params: params});
+  }
+
+  getDeudas(id_anio) {
+    const params = new HttpParams().set('id_año', id_anio);
+    return this.http.get<SgaResponse<UserResponse>>(ServerConfig.getUrl(this.controller, 'deudas'), { params: params});
   }
 }

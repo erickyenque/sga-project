@@ -6,6 +6,7 @@ import { MateriaYearRequest } from '../types/request/MateriaYearRequest';
 import { MateriaResponse } from '../types/response/MateriaResponse';
 import { YearResponse } from '../types/response/YearReponse';
 import * as toastr from 'toastr';
+declare var $: any;
 
 @Component({
   selector: 'app-year-course',
@@ -16,7 +17,10 @@ export class YearCourseComponent implements OnInit {
 
   materiaYear: MateriaYearRequest = {
     id_anio: "",
-    cod_materia: ""
+    cod_materia: "",
+    dia: "",
+    hora_inicio: "",
+    hora_fin: ""
   };
 
   materias: MateriaResponse[];
@@ -31,6 +35,16 @@ export class YearCourseComponent implements OnInit {
   ngOnInit(): void {
     this.getMaterias();
     this.getAnios();
+    this.setConfigB();
+  }
+
+  setConfigB() {
+    $('#timepicker1').datetimepicker({
+      format: 'LT'
+    })
+    $('#timepicker2').datetimepicker({
+      format: 'LT'
+    })
   }
 
   getMaterias() {
@@ -59,6 +73,8 @@ export class YearCourseComponent implements OnInit {
   }
 
   addMateriaYear() {
+    this.materiaYear.hora_inicio = $("#timepicker1").find("input").val();
+    this.materiaYear.hora_fin = $("#timepicker2").find("input").val();
     this.materiYearService.addMateriaYear(this.materiaYear).subscribe(response => {
       if (response.success) {
         toastr.success('Año agregado!');

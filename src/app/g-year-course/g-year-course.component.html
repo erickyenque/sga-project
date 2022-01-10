@@ -11,6 +11,8 @@
                         <th>#</th>
                         <th>Año</th>
                         <th>Materia</th>
+                        <th>Dia</th>
+                        <th>Horario</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
@@ -18,12 +20,16 @@
                     <tr *ngFor="let materiaYear of materiasYear; let i = index;">
                         <td>{{i+1}}</td>
                         <td>{{materiaYear.nombre_anio}} - {{materiaYear.turno}} - {{materiaYear.seccion}}</td>
-                        <td>({{materiaYear.cod_materia}}) {{materiaYear.nombre_materia}}</td>
+                        <td>{{materiaYear.nombre_materia}}</td>
+                        <td>{{materiaYear.dia}}</td>
+                        <td>{{materiaYear.hora_inicio}} - {{materiaYear.hora_fin}}</td>
                         <td>
-                            <a class="btn btn-info" href="courses/edit-year"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-info"
+                                href="courses/edit-year/{{materiaYear.cod_materia}}/{{materiaYear.id_anio}}/{{materiaYear.id_frecuencia}}"><i
+                                    class="fas fa-edit"></i></a>
                         </td>
                     </tr>
-                </tbody>  
+                </tbody>
             </table>
         </div>
         <!-- /.card-body -->

@@ -14,7 +14,12 @@ import { GYearClassComponent } from '../g-year-class/g-year-class.component';
 import { GYearCourseComponent } from '../g-year-course/g-year-course.component';
 import { GYearTeacherComponent } from '../g-year-teacher/g-year-teacher.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { MyCoursesComponent } from '../my-courses/my-courses.component';
+import { PagosApagaComponent } from '../pagos-apaga/pagos-apaga.component';
 import { RDashboardComponent } from '../r-dashboard/r-dashboard.component';
+import { ReporteDeudasComponent } from '../reporte-deudas/reporte-deudas.component';
+import { ReportsComponent } from '../reports/reports.component';
+import { ScheduleComponent } from '../schedule/schedule.component';
 import { StudentComponent } from '../student/student.component';
 import { TeacherComponent } from '../teacher/teacher.component';
 import { UsersComponent } from '../users/users.component';
@@ -55,7 +60,7 @@ const routes: Routes = [
         path: 'management-year', component: GYearCourseComponent
       },
       {
-        path: 'edit-year', component: EditYearCourseComponent
+        path: 'edit-year/:cod_materia/:id_anio/:id_frecuencia', component: EditYearCourseComponent
       },
     ],
   },
@@ -116,6 +121,33 @@ const routes: Routes = [
       },
       {
         path: 'edit/:id', component: EditYearClassComponent
+      }
+    ]
+  },
+  {
+    path: 'perfil', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: 'my-courses', component: MyCoursesComponent
+      },
+      {
+        path: 'schedule', component: ScheduleComponent
+      },
+      {
+        path: 'reports', component: ReportsComponent
+      }
+    ]
+  },
+  {
+    path: 'apafa', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: 'pagos', component: PagosApagaComponent
+      },
+      {
+        path: 'reports', component: ReporteDeudasComponent
       }
     ]
   }

@@ -1,10 +1,11 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>Panel de control</h3>
+            <h3 *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">Panel de control</h3>
+            <h3 *ngIf="login.role === 'ESTUDIANTE' || login.role === 'DOCENTE'">Bienvenidos</h3>
         </div>
         <div class="card-body">
-            <div class="row">
+            <div class="row" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <a class="dashboard-stat bg-primary" href="/students/management">
                         <span class="number counter">{{students}}</span>
@@ -37,6 +38,11 @@
                         <span class="bg-icon"><i class="fa fa-file-text"></i></span>
                     </a>
                     <!-- /.dashboard-stat -->
+                </div>
+            </div>
+            <div class="row" *ngIf="login.role === 'ESTUDIANTE' || login.role === 'DOCENTE'">
+                <div class="col-md-12">
+                    <img src="assets/imgs/bg-colegio.jpg" alt="" class="img-fluid">
                 </div>
             </div>
         </div>

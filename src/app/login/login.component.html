@@ -10,11 +10,11 @@
                     <p class="text-center mb-4"><small>Sistema de Gestión Académica</small></p>
                     <div class="mb-3">
                         <label for="inputUser" class="form-label">Nombre de usuario:</label>
-                        <input type="text" class="form-control" [(ngModel)]="login.nickname">
+                        <input type="text" class="form-control" [(ngModel)]="login.nickname" (keydown)="onKeydown($event)">
                     </div>
                     <div class="mb-3">
                         <label for="inputPassword" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" [(ngModel)]="login.password">
+                        <input type="password" class="form-control" [(ngModel)]="login.password" (keydown)="onKeydown($event)">
                     </div>
                     <div class="col text-center">
                         <button type="button" class="btn btn-dark" (click)="onLogin()">Iniciar Sesión</button>

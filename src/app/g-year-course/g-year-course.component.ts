@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { YearCourseService } from '../services/year-course.service';
 import { MateriaYearResponse } from '../types/response/MateriaYearResponse';
+declare var $: any;
 
 @Component({
   selector: 'app-g-year-course',
@@ -19,10 +20,17 @@ export class GYearCourseComponent implements OnInit {
     this.getList();
   }
 
+  setConfigM() {
+    $(function () {
+      $("#example1").DataTable();
+    });
+  }
+
   getList() {
     this.materiaYearService.listarMateriaYear().subscribe(response => {
       if (response.success) {
         this.materiasYear = response.data;
+        this.setConfigM();
       }
     })
   }

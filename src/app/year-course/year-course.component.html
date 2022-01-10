@@ -4,18 +4,51 @@
             <h3>Agregar Materia/Año</h3>
         </div>
         <div class="card-body">
-            <div>
+            <div class="row">
                 <div class="form-group col-md-6">
                     <label>Año</label>
                     <select class="form-control" [(ngModel)]="materiaYear.id_anio">
-                      <option *ngFor="let year of years;" [value]="year.id_anio">{{year.nombre}} - {{year.turno}} - {{year.seccion}}</option>
+                        <option *ngFor="let year of years;" [value]="year.id_anio">{{year.nombre}} - {{year.turno}} -
+                            {{year.seccion}}</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Materia</label>
                     <select class="form-control" [(ngModel)]="materiaYear.cod_materia">
-                        <option *ngFor="let materia of materias;" [value]="materia.cod_materia">{{materia.nombre}}</option>
+                        <option *ngFor="let materia of materias;" [value]="materia.cod_materia">{{materia.nombre}}
+                        </option>
                     </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Día</label>
+                    <select class="form-control" [(ngModel)]="materiaYear.dia">
+                        <option value="LUNES">LUNES</option>
+                        <option value="MARTES">MARTES</option>
+                        <option value="MIERCOLES">MIERCOLES</option>
+                        <option value="JUEVES">JUEVES</option>
+                        <option value="VIERNES">VIERNES</option>
+                    </select>
+                </div>
+                <!-- time Picker -->
+                <div class="form-group col-md-4">
+                    <label>Horario Inicio:</label>
+                    <div class="input-group date" id="timepicker1" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker1" />
+                        <div class="input-group-append" data-target="#timepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Horario Fin:</label>
+                    <div class="input-group date" id="timepicker2" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker2" />
+                        <div class="input-group-append" data-target="#timepicker2" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
                 </div>
                 <button class="btn btn-primary" (click)="addMateriaYear()">REGISTRAR</button>
             </div>

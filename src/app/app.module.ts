@@ -34,6 +34,11 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { GYearTeacherComponent } from './g-year-teacher/g-year-teacher.component';
 import { EditYearCourseComponent } from './edit-year-course/edit-year-course.component';
 import { EditTeacherCourseComponent } from './edit-teacher-course/edit-teacher-course.component';
+import { MyCoursesComponent } from './my-courses/my-courses.component';
+import { ReportsComponent } from './reports/reports.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { PagosApagaComponent } from './pagos-apaga/pagos-apaga.component';
+import { ReporteDeudasComponent } from './reporte-deudas/reporte-deudas.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +69,12 @@ import { EditTeacherCourseComponent } from './edit-teacher-course/edit-teacher-c
     TeacherComponent,
     GYearTeacherComponent,
     EditYearCourseComponent,
-    EditTeacherCourseComponent
+    EditTeacherCourseComponent,
+    MyCoursesComponent,
+    ReportsComponent,
+    ScheduleComponent,
+    PagosApagaComponent,
+    ReporteDeudasComponent
   ],
   imports: [
     BrowserModule,
