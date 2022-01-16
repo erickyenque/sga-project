@@ -102,7 +102,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file-alt"></i>
                             <p>
-                                Materias
+                                Material Educativo
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -110,11 +110,12 @@
                             <li class="nav-item">
                                 <a href="/perfil/my-courses" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Mis cursos</p>
+                                    <p *ngIf="login.role == 'DOCENTE'">Gestionar Material</p>
+                                    <p *ngIf="login.role == 'ESTUDIANTE'">Ver Material</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/perfil/#" class="nav-link">
+                            <li class="nav-item" *ngIf="login.role == 'DOCENTE'">
+                                <a href="/perfil/notas-curso" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Notas curso</p>
                                 </a>
@@ -127,7 +128,7 @@
                             <p>Horario</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview" *ngIf="login.role == 'ESTUDIANTE' || login.role == 'DOCENTE'">
+                    <li class="nav-item has-treeview" *ngIf="login.role == 'DOCENTE'">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file"></i>
                             <p>

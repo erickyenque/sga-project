@@ -25,7 +25,10 @@ import { TeacherComponent } from '../teacher/teacher.component';
 import { UsersComponent } from '../users/users.component';
 import { YearClassComponent } from '../year-class/year-class.component';
 import { YearCourseComponent } from '../year-course/year-course.component';
+import { MyCoursesFilesComponent } from '../my-courses-files/my-courses-files.component';
 import { DashboardComponent } from './dashboard.component';
+import { NotasCursoComponent } from '../notas-curso/notas-curso.component';
+import { NotasEstudianteComponent } from '../notas-estudiante/notas-estudiante.component';
 
 const routes: Routes = [
   {
@@ -130,6 +133,15 @@ const routes: Routes = [
     children: [
       {
         path: 'my-courses', component: MyCoursesComponent
+      },
+      {
+        path: 'my-courses-files/:cod_materia', component: MyCoursesFilesComponent
+      },
+      {
+        path: 'notas-curso', component: NotasCursoComponent
+      },
+      {
+        path: 'notas-estudiante/:cod_materia', component: NotasEstudianteComponent
       },
       {
         path: 'schedule', component: ScheduleComponent

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DialogModule } from 'custom-angular-dialog';
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,6 +41,10 @@ import { ReportsComponent } from './reports/reports.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { PagosApagaComponent } from './pagos-apaga/pagos-apaga.component';
 import { ReporteDeudasComponent } from './reporte-deudas/reporte-deudas.component';
+import { MyCoursesFilesComponent } from './my-courses-files/my-courses-files.component';
+import { NotasCursoComponent } from './notas-curso/notas-curso.component';
+import { NotasEstudianteComponent } from './notas-estudiante/notas-estudiante.component';
+
 
 @NgModule({
   declarations: [
@@ -74,7 +80,10 @@ import { ReporteDeudasComponent } from './reporte-deudas/reporte-deudas.componen
     ReportsComponent,
     ScheduleComponent,
     PagosApagaComponent,
-    ReporteDeudasComponent
+    ReporteDeudasComponent,
+    MyCoursesFilesComponent,
+    NotasCursoComponent,
+    NotasEstudianteComponent
   ],
   imports: [
     BrowserModule,
@@ -83,8 +92,10 @@ import { ReporteDeudasComponent } from './reporte-deudas/reporte-deudas.componen
     GoogleMapsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DialogModule
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

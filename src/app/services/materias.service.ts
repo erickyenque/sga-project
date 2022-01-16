@@ -1,9 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServerConfig } from '../config/ServerConfig';
+import { FileRequest } from '../types/request/FileRequest';
 import { MateriaRequest } from '../types/request/MateriaRequest';
+import { ModuloRequest } from '../types/request/ModuloRequest';
+import { NotaRequest } from '../types/request/NotaRequest';
+import { AlumnosResponse } from '../types/response/AlumnosResponse';
+import { FileResponse } from '../types/response/FileResponse';
 import { FrecuenciaResponse } from '../types/response/FrecuenciaResponse';
 import { MateriaResponse } from '../types/response/MateriaResponse';
+import { ModulosResponse } from '../types/response/ModulosResponse';
 import { SgaResponse } from '../types/response/SgaResponse';
 
 @Injectable({
@@ -53,5 +59,42 @@ export class MateriasService {
   frecuencia(id_frecuencia) {
     const params = new HttpParams().set('id_frecuencia', id_frecuencia);
     return this.http.get<SgaResponse<FrecuenciaResponse>>(ServerConfig.getUrl(this.controller, 'frecuencia'), { params: params});
+  }
+
+  crearModulo(modulo: ModuloRequest) {
+    const formData = new FormData();
+    formData.append('nombre', modulo.nombre);
+    formData.append('cod_materia', modulo.cod_materia);
+    return this.http.post<SgaResponse<ModuloRequest>>(ServerConfig.getUrl(this.controller, 'crearModulo'), formData);
+  }
+
+  listarModulos(cod_materia) {
+    const params = new HttpParams().set('cod_materia', cod_materia);
+    return this.http.get<SgaResponse<ModulosResponse>>(ServerConfig.getUrl(this.controller, 'listarModulos'), { params: params});
+  }
+
+  subirArchivo(file: FileRequest) {
+    const formData = new FormData();
+    formData.append('file', file.file, file.file.name);
+    formData.append('id_modulo', file.id_modulo);
+    return this.http.post<SgaResponse<FileRequest>>(ServerConfig.getUrl(this.controller, 'subirArchivo'), formData);
+  }
+
+  listarArchivos(id_modulo: string) {
+    const params = new HttpParams().set('id_modulo', id_modulo);
+    return this.http.get<SgaResponse<FileResponse>>(ServerConfig.getUrl(this.controller, 'listarArchivos'), { params: params});
+  }
+
+  listarAlumnos(cod_materia) {
+    const params = new HttpParams().set('cod_materia', cod_materia);
+    return this.http.get<SgaResponse<AlumnosResponse>>(ServerConfig.getUrl(this.controller, 'listarAlumnos'), { params: params});
+  }
+
+  calificar(nota: NotaRequest) {
+    const formData = new FormData();
+    formData.append('calificacion', nota.calificacion);
+    formData.append('id_matricula', nota.id_matricula);
+    formData.append('cod_materia', nota.cod_materia);
+    return this.http.post<SgaResponse<FileRequest>>(ServerConfig.getUrl(this.controller, 'agregarNota'), formData);
   }
 }

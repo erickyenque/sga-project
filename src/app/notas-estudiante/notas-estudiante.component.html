@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Notas Materia</h3>            
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dni</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Calificación</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let alumno of alumnos; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{alumno.dni}}</td>
+                        <td>{{alumno.nombres}}</td>
+                        <td>{{alumno.apePaterno}} {{alumno.apeMaterno}}</td>                   
+                        <td>{{alumno.calificacion}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="selectAlumno(alumno)"><i class="far fa-clipboard"></i></button>
+                        </td>
+                    </tr>
+                </tbody>  
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+    <app-dialog [(visible)]="showDialog" [width]="40" [height]="30" [headerColor]="'#343A40'" [resizable]=false>
+        <dialog-header class="text-white">Agregar Nota: {{alumnoSelected?.nombres}} {{alumnoSelected?.apePaterno}}</dialog-header>
+        <dialog-body>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <input class="form-control mt-2 mb-2" placeholder="Ejemplo: 20" [(ngModel)]="tDialog"
+                            type="text" />
+                        <button class="btn btn-secondary mr-2" (click)="showDialog = !showDialog">Cerrar</button>
+                        <button class="btn btn-success ml-2" (click)="calificar()">Calificar</button>
+                    </div>
+                </div>
+            </div>
+        </dialog-body>
+    </app-dialog>
+</div>
