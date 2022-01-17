@@ -56,7 +56,7 @@ export class EditStudentsComponent implements OnInit {
   finalizarMatricula() {
     this.matriculaService.finalizarMatricula(this.user).subscribe(response => {
       if (response.success) {
-        toastr.success("Materia actualizada!");
+        toastr.success("Matricula actualizada!");
       } else {
         toastr.error("Hubo un problema!");
       }
