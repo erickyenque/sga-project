@@ -8,7 +8,8 @@
                 <div class="form-group col-md-10">
                     <label>Año</label>
                     <select class="form-control" [(ngModel)]="anio">
-                      <option *ngFor="let year of years;" [value]="year.id_anio">{{year.nombre}} - {{year.turno}} - {{year.seccion}}</option>
+                      <option *ngFor="let year of years;" [value]="year.id_anio">{{year.nombre}} - {{year.turno}} -
+                        - {{year.numero}} - {{year.seccion}} - {{year.nivel}} </option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
