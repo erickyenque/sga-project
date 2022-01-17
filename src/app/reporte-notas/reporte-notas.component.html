@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Reporte de Notas</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Dni</label>
+                    <input type="text" class="form-control" placeholder="Dni" [(ngModel)]="user.dni">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Buscar: </label>
+                    <button class="btn btn-primary form-control" (click)="buscarEstudiante()">Buscar Estudiante</button>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Nombres</label>
+                    <input type="text" class="form-control" placeholder="---" [(ngModel)]="user.nombres" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Apellido Paterno</label>
+                    <input type="text" class="form-control" placeholder="---"
+                        [(ngModel)]="user.apePaterno" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Apellido Materno</label>
+                    <input type="text" class="form-control" placeholder="---"
+                        [(ngModel)]="user.apeMaterno" disabled>
+                </div>                             
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Resultados</h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Curso</th>
+                        <th>Calificación</th>
+                        <th>Fecha Registro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let materia of materias; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{materia.nombre}}</td>
+                        <td>{{materia.calificacion}}</td>
+                        <td>{{materia.fecha}}</td>
+                    </tr>
+                </tbody>  
+            </table>
+        </div>
+    </div>
+</div>

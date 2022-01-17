@@ -97,4 +97,9 @@ export class MateriasService {
     formData.append('cod_materia', nota.cod_materia);
     return this.http.post<SgaResponse<FileRequest>>(ServerConfig.getUrl(this.controller, 'agregarNota'), formData);
   }
+
+  buscarArhivos(patron) {
+    const params = new HttpParams().set('patron', patron);
+    return this.http.get<SgaResponse<FileResponse>>(ServerConfig.getUrl(this.controller, 'buscarArchivos'), { params: params});
+  }
 }

@@ -8,6 +8,7 @@ import { DatosResponse } from '../types/response/DatosResponse';
 import { EditUserRequest } from '../types/request/EditUserRequest';
 import { EditUsersComponent } from '../edit-users/edit-users.component';
 import { StudentResponse } from '../types/response/StudentResponse';
+import { NotasResponse } from '../types/response/NotasResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -97,5 +98,10 @@ export class UserService {
     formData.append('role', user.role);
     formData.append('id_anio', user.id_anio);
     return this.http.post<SgaResponse<any>>(ServerConfig.getUrl(this.controller, 'estudiante'), formData);
+  }
+
+  notasMaterias(id_estudiante) {
+    const params = new HttpParams().set('id_estudiante', id_estudiante);
+    return this.http.get<SgaResponse<NotasResponse>>(ServerConfig.getUrl(this.controller, 'notasMaterias'), { params: params });
   }
 }

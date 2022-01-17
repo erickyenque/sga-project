@@ -1,10 +1,17 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>Materias</h3>
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Materias</h3>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Buscar material" (input)="onSearchChange($event.target.value)">
+                </div>
+            </div>         
         </div>
         <div class="card-body">
-            <div class="row">
+            <div class="row" *ngIf="showCourses">
                 <div class="col-md-4" *ngFor="let materia of materias;">
                     <a href="/perfil/my-courses-files/{{materia.cod_materia}}">
                         <div class="card" style="width: 18rem;">
@@ -15,6 +22,20 @@
                             </div>
                         </div>
                     </a>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="!showCourses">
+                <div class="card col-md-3"
+                    *ngFor="let archivo of archivos">
+                    <div class="card-body">
+                        <a
+                            href="http://localhost/api-sga/public/archivos/{{archivo.filename}}">
+                            <img class="img-fluid" src="assets/imgs/file.png" alt="">
+                            <p class="text-center mt-2" style="font-size: 12px;">
+                                {{archivo.nombre}}</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

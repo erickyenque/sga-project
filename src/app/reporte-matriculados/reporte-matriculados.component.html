@@ -1,0 +1,48 @@
+<div class="container ">
+    <div class="card">
+        <div class="card-header">
+            <h3>Reporte Matriculados</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group col-md-10">
+                    <label>Año</label>
+                    <select class="form-control" [(ngModel)]="anio">
+                      <option *ngFor="let year of years;" [value]="year.id_anio">{{year.nombre}} - {{year.turno}} - {{year.seccion}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Opción</label>
+                    <button class="form-control btn btn-primary" (click)="getMatriculados()">REPORTAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Resultados</h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dni</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let alumno of alumnos; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{alumno.dni}}</td>
+                        <td>{{alumno.nombres}}</td>
+                        <td>{{alumno.apePaterno}} {{alumno.apeMaterno}}</td>
+                    </tr>
+                </tbody>  
+            </table>
+        </div>
+    </div>
+    
+</div>

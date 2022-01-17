@@ -29,6 +29,8 @@ import { MyCoursesFilesComponent } from '../my-courses-files/my-courses-files.co
 import { DashboardComponent } from './dashboard.component';
 import { NotasCursoComponent } from '../notas-curso/notas-curso.component';
 import { NotasEstudianteComponent } from '../notas-estudiante/notas-estudiante.component';
+import { ReporteMatriculadosComponent } from '../reporte-matriculados/reporte-matriculados.component';
+import { ReporteNotasComponent } from '../reporte-notas/reporte-notas.component';
 
 const routes: Routes = [
   {
@@ -147,7 +149,10 @@ const routes: Routes = [
         path: 'schedule', component: ScheduleComponent
       },
       {
-        path: 'reports', component: ReportsComponent
+        path: 'reporte-matriculados', component: ReporteMatriculadosComponent
+      },
+      {
+        path: 'reporte-notas', component: ReporteNotasComponent
       }
     ]
   },

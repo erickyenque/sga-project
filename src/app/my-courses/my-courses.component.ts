@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MateriasService } from '../services/materias.service';
 import StorageEnum from '../types/enumeration/StorageEnum';
+import { FileResponse } from '../types/response/FileResponse';
 import { LoginResponse } from '../types/response/LoginResponse';
 import { MateriaResponse } from '../types/response/MateriaResponse';
 import Storage from '../utils/Storage';
@@ -14,6 +15,9 @@ export class MyCoursesComponent implements OnInit {
 
   materias: MateriaResponse[];
   login: LoginResponse;
+  archivos: FileResponse[];
+
+  showCourses: boolean = true;
 
   constructor(
     private materiaService: MateriasService,
@@ -45,5 +49,14 @@ export class MyCoursesComponent implements OnInit {
 
   getSession() {
     this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
+  }
+
+  onSearchChange(searchValue: string): void {  
+    this.showCourses = searchValue.length === 0;
+    this.materiaService.buscarArhivos(searchValue).subscribe(response => {
+      if (response.success) {
+        this.archivos = response.data;
+      }
+    })
   }
 }

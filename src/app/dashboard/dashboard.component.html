@@ -128,7 +128,7 @@
                             <p>Horario</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview" *ngIf="login.role == 'DOCENTE'">
+                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file"></i>
                             <p>
@@ -138,9 +138,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/perfil/reports" class="nav-link">
+                                <a href="/perfil/reporte-matriculados" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Reporte de notas</p>
+                                    <p>Reporte Matriculados</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/perfil/reporte-notas" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Reporte Notas</p>
                                 </a>
                             </li>
                         </ul>

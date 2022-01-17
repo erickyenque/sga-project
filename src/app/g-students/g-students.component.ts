@@ -100,6 +100,10 @@ export class GStudentsComponent implements OnInit {
           <td>FECHA</td>
           <td>${date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()}</td>
         </tr>
+        <tr>                      
+          <td>MONTO</td>
+          <td>S/ ${this.user.monto}</td>
+        </tr>
       </tbody>  
     </table>
     <br>
