@@ -14,8 +14,7 @@ export class ReporteMatriculadosComponent implements OnInit {
 
   years: YearResponse[];
   alumnos: UserResponse[];
-  files: FileResponse[];
-
+  showButton = false;
   anio: number;
 
   constructor(
@@ -42,9 +41,11 @@ export class ReporteMatriculadosComponent implements OnInit {
   getMatriculados() {
     this.anioService.getAlumnos(this.anio).subscribe(response => {
       if (response.success) {
+        this.showButton = true;
         this.alumnos = response.data;
       } else {
         this.alumnos = [];
+        this.showButton = false;
       }
     });
   }
