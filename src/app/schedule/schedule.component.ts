@@ -36,7 +36,16 @@ export class ScheduleComponent implements OnInit {
 
   generateTable(horario: HorarioResponse[]) {
     var timetable = new Timetable();
-    timetable.setScope(7, 18); // optional, only whole hours between 0 and 23
+    let horario_inicio = 0;
+    let horario_fin = 0;
+    if(horario[0].turno) {
+      horario_inicio = 7;
+      horario_fin = 13;
+    } else {
+      horario_inicio = 13;
+      horario_fin = 19;
+    }
+    timetable.setScope(horario_inicio, horario_fin); // optional, only whole hours between 0 and 23
     timetable.useTwelveHour(); //optional, displays hours in 12 hour format (1:00PM)
 
     timetable.addLocations(['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES']);

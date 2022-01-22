@@ -46,6 +46,7 @@ import { NotasCursoComponent } from './notas-curso/notas-curso.component';
 import { NotasEstudianteComponent } from './notas-estudiante/notas-estudiante.component';
 import { ReporteNotasComponent } from './reporte-notas/reporte-notas.component';
 import { ReporteMatriculadosComponent } from './reporte-matriculados/reporte-matriculados.component';
+import { GApafaComponent } from './g-apafa/g-apafa.component';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { ReporteMatriculadosComponent } from './reporte-matriculados/reporte-mat
     NotasCursoComponent,
     NotasEstudianteComponent,
     ReporteNotasComponent,
-    ReporteMatriculadosComponent
+    ReporteMatriculadosComponent,
+    GApafaComponent
   ],
   imports: [
     BrowserModule,
