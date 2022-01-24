@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServerConfig } from '../config/ServerConfig';
+import { TeacherYearRequest } from '../types/request/TeacherYearRequest';
 import { YearRequest } from '../types/request/YearRequest';
 import { HorarioResponse } from '../types/response/HorarioResponse';
 import { MateriasYearResponse } from '../types/response/MateriasYearResponse';
@@ -38,6 +39,11 @@ export class AnioService {
     return this.http.get<SgaResponse<YearResponse>>(ServerConfig.getUrl(this.controller, 'datos'), { params: params});
   }
 
+  
+  buscarDocente(codigo) {
+    const params = new HttpParams().set('id_docente', codigo);
+    return this.http.get<SgaResponse<TeacherYearRequest>>(ServerConfig.getUrl(this.controller, 'buscarDocente'), { params: params});
+  }
 
   editAnio(year: YearResponse) {
     const formData = new FormData();
@@ -46,6 +52,7 @@ export class AnioService {
     formData.append('numero', year.numero);
     formData.append('seccion', year.seccion);
     formData.append('turno', year.turno);
+    formData.append('nivel', year.nivel);
     return this.http.post<SgaResponse<YearResponse>>(ServerConfig.getUrl(this.controller, 'editar'), formData);
   }
 

@@ -28,28 +28,11 @@
                             <p>Gestionar Matriculas</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
+                        <a href="apafa/management" class="nav-link">
                             <i class="nav-icon fas fa-money-check-alt"></i>
-                            <p>
-                                Gestionar Apafa
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
+                            <p>Gestionar Apafa</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="apafa/pagos" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Pagos Apafa</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apafa/reports" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Deudas</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                         <a href="/teachers/management" class="nav-link">
@@ -59,44 +42,21 @@
                     </li>                    
                     <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                         <a href="/years/management" class="nav-link">
-                            <i class="nav-icon fas fa-user"></i>
+                            <i class="nav-icon fas fa-layer-group"></i>
                             <p>Gestionar Periodo</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-file-alt"></i>
-                            <p>
-                                Materias
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
+                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
+                        <a href="/courses/management" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>Gestionar Materias</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="courses/add" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Crear Materias</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="courses/management" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Editar Materias</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="courses/add-year" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Asignar Materias/Año</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="courses/management-year" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Editar Materias/Año </p>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
+                        <a href="courses/management-year" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>Gestionar Horarios</p>
+                        </a>
                     </li>
                     <li class="nav-item has-treeview" *ngIf="login.role == 'ESTUDIANTE' || login.role == 'DOCENTE'">
                         <a href="#" class="nav-link">

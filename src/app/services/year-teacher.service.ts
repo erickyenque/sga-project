@@ -23,6 +23,14 @@ export class YearTeacherService {
     return this.http.post<SgaResponse<any>>(ServerConfig.getUrl(this.controller, 'agregar_anio'), formData);
   }
 
+  updateTeacherYear(teacherYear: TeacherYearRequest) {
+    const formData = new FormData();
+    formData.append('id_materia_docente', teacherYear.id_materia_docente);
+    formData.append('id_año_materia', teacherYear.id_anio_materia);
+    formData.append('id_docente', teacherYear.id_docente);
+    return this.http.post<SgaResponse<any>>(ServerConfig.getUrl('anios', 'editar_anio'), formData);
+  }
+
   listarTeacherYear() {
     return this.http.get<SgaResponse<TeacherYearResponse>>(ServerConfig.getUrl(this.controller, 'listar_ty'));
   }

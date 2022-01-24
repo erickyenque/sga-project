@@ -78,6 +78,8 @@ export class TeacherComponent implements OnInit {
           year.id_anio_materia = year.id_año_materia;
           return year;
         })
+      } else {
+        this.materias = [];
       }
     })
   }

@@ -1,1 +1,46 @@
-<p>g-apafa works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Gestionar Pagos Apafas</h3>
+                </div>
+                <div class="col-md-4">
+                    <a href="apafa/pagos" class="btn btn-success float-right"><i class="fas fa-plus"></i> Registrar Pago</a>
+                </div>
+            </div>            
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Año</th>
+                        <th>Estado</th>
+                        <th>Descargar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let apafa of apafas; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{apafa.nombres}}</td>
+                        <td>{{apafa.apePaterno}} {{apafa.apeMaterno}}</td>                        
+                        <td>{{apafa.nombre}}</td>
+                        <td>
+                            <div class="badge badge-warning" *ngIf="apafa.estadoA == 'PENDIENTE'">{{apafa.estadoA}}</div>
+                            <div class="badge badge-success" *ngIf="apafa.estadoA == 'PAGADO'">{{apafa.estadoA}}</div>
+                        </td>
+                        <td>
+                            <button class="btn btn-success ml-1" (click)="download(apafa)" *ngIf="apafa.estadoA === 'PAGADO'"><i class="fas fa-file-pdf"></i></button>
+                            <p *ngIf="apafa.estadoA === 'PENDIENTE'">No disponible</p>
+                        </td>
+                    </tr>
+                </tbody>  
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>

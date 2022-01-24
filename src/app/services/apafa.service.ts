@@ -23,4 +23,8 @@ export class ApafaService {
     formData.append('id_año', pago.id_año);
     return this.http.post<SgaResponse<PagoApafaRequest>>(ServerConfig.getUrl(this.controller, 'agregar'), formData);
   }
+
+  listar() {
+    return this.http.get<SgaResponse<any[]>>(ServerConfig.getUrl(this.controller, 'listar'));
+  }
 }

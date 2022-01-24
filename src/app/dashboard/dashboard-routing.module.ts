@@ -31,6 +31,7 @@ import { NotasCursoComponent } from '../notas-curso/notas-curso.component';
 import { NotasEstudianteComponent } from '../notas-estudiante/notas-estudiante.component';
 import { ReporteMatriculadosComponent } from '../reporte-matriculados/reporte-matriculados.component';
 import { ReporteNotasComponent } from '../reporte-notas/reporte-notas.component';
+import { GApafaComponent } from '../g-apafa/g-apafa.component';
 
 const routes: Routes = [
   {
@@ -165,6 +166,9 @@ const routes: Routes = [
       },
       {
         path: 'reports', component: ReporteDeudasComponent
+      },
+      {
+        path: 'management', component: GApafaComponent
       }
     ]
   }

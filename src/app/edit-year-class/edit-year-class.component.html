@@ -13,15 +13,22 @@
                     <label>Número de Año Escolar</label>
                     <input type="number" min="1" class="form-control" [(ngModel)]="year.numero">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label>Sección</label>
                     <input type="text" class="form-control" [(ngModel)]="year.seccion">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label>Turno</label>
                     <select class="form-control" [(ngModel)]="year.turno">
                       <option value="MAÑANA">MAÑANA</option>
                       <option value="TARDE">TARDE</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Nivel</label>
+                    <select class="form-control" [(ngModel)]="year.nivel">
+                      <option value="PRIMARIA">PRIMARIA</option>
+                      <option value="SECUNDARIA">SECUNDARIA</option>
                     </select>
                 </div>
                 <button class="btn btn-primary" (click)="editUser()" style="width: 100px;">Enviar</button>
