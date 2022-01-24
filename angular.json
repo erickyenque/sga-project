@@ -53,7 +53,8 @@
               "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js",
               "node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js",
               "node_modules/admin-lte/plugins/fullcalendar/main.min.js",
-              "src/lib/scripts/timetable.js"
+              "src/lib/scripts/timetable.js",
+              "src/lib/scripts/jquery.inputmask.bundle.min.js"
             ]
           },
           "configurations": {

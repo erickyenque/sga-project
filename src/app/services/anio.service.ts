@@ -71,7 +71,7 @@ export class AnioService {
     return this.http.get<SgaResponse<UserResponse>>(ServerConfig.getUrl(this.controller, 'deudas'), { params: params});
   }
 
-  getAlumnos(id_anio) {
+  getAlumnos(id_anio, fecha1, fecha2) {
     const params = new HttpParams().set('id_año', id_anio);
     return this.http.get<SgaResponse<UserResponse>>(ServerConfig.getUrl(this.controller, 'matriculados'), { params: params});
   }

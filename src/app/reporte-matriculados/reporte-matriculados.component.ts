@@ -4,6 +4,7 @@ import { FileResponse } from '../types/response/FileResponse';
 import { UserResponse } from '../types/response/UserResponse';
 import { YearResponse } from '../types/response/YearReponse';
 import * as html2pdf from 'html2pdf.js';
+declare var $: any;
 
 @Component({
   selector: 'app-reporte-matriculados',
@@ -23,6 +24,12 @@ export class ReporteMatriculadosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnios();
+    this.setConfigB();
+  }
+
+  setConfigB() {
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    $('#datemask2').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
   }
 
   getAnios() {
@@ -39,7 +46,9 @@ export class ReporteMatriculadosComponent implements OnInit {
   }
 
   getMatriculados() {
-    this.anioService.getAlumnos(this.anio).subscribe(response => {
+    let fecha1 = $('#datemask').val();
+    let fecha2 = $('#datemask2').val();
+    this.anioService.getAlumnos(this.anio, fecha1, fecha2).subscribe(response => {
       if (response.success) {
         this.showButton = true;
         this.alumnos = response.data;

@@ -5,12 +5,36 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="form-group col-md-10">
+                <div class="form-group col-md-4">
                     <label>Año</label>
                     <select class="form-control" [(ngModel)]="anio">
-                      <option *ngFor="let year of years;" [value]="year.id_anio">{{year.nombre}} - {{year.turno}} -
-                        - {{year.numero}} - {{year.seccion}} - {{year.nivel}} </option>
+                        <option *ngFor="let year of years;" [value]="year.id_anio">{{year.nombre}} - {{year.turno}} -
+                            - {{year.numero}} - {{year.seccion}} - {{year.nivel}} </option>
                     </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Fecha Inicio:</label>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        <input type="text" class="form-control" data-inputmask-alias="datetime"
+                            data-inputmask-inputformat="dd/mm/yyyy" data-mask id="datemask">
+                    </div>
+                    <!-- /.input group -->
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Fecha Fin:</label>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        <input type="text" class="form-control" data-inputmask-alias="datetime"
+                            data-inputmask-inputformat="dd/mm/yyyy" data-mask id="datemask2">
+                    </div>
+                    <!-- /.input group -->
                 </div>
                 <div class="form-group col-md-2">
                     <label>Opción</label>
@@ -27,7 +51,8 @@
                     <h3>Resultados</h3>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary float-right" (click)="generarPdf()" *ngIf="showButton">Generar Pdf</button>
+                    <button class="btn btn-primary float-right" (click)="generarPdf()" *ngIf="showButton">Generar
+                        Pdf</button>
                 </div>
             </div>
         </div>
@@ -48,9 +73,9 @@
                         <td>{{alumno.nombres}}</td>
                         <td>{{alumno.apePaterno}} {{alumno.apeMaterno}}</td>
                     </tr>
-                </tbody>  
+                </tbody>
             </table>
         </div>
     </div>
-    
+
 </div>
