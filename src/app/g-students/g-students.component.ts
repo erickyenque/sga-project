@@ -108,6 +108,9 @@ export class GStudentsComponent implements OnInit {
     </table>
     <br>
     <br>
+    <a href="https://api-seguridad.sunat.gob.pe/v1/clientessol/4f3b88b3-d9d6-402a-b85d-6a0bc857746a/oauth2/loginMenuSol?originalUrl=https://e-menu.sunat.gob.pe/cl-ti-itmenu/AutenticaMenuInternet.htm&state=rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVzaG9sZHhwP0AAAAAAAAx3CAAAABAAAAADdAAEZXhlY3B0AAZwYXJhbXN0AEsqJiomL2NsLXRpLWl0bWVudS9NZW51SW50ZXJuZXQuaHRtJmI2NGQyNmE4YjVhZjA5MTkyM2IyM2I2NDA3YTFjMWRiNDFlNzMzYTZ0AANleGVweA==">https://api-seguridad.sunat.gob.pe</a>
+    <br>
+    <br>
     <p style="font-size: 12px;font-style: italic;">Este es un documento que valida la matriculación del alumno en la escuela. 
     Este documento puede ser solcitado y entregado el momento que lo necesite.
     Para cualquier información llamar al número: 999 999 999</p>
