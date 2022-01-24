@@ -72,7 +72,10 @@ export class AnioService {
   }
 
   getAlumnos(id_anio, fecha1, fecha2) {
-    const params = new HttpParams().set('id_año', id_anio);
+    const params = new HttpParams()
+    .set('id_año', id_anio)
+    .set('fecha1', fecha1)
+    .set('fecha2', fecha2);
     return this.http.get<SgaResponse<UserResponse>>(ServerConfig.getUrl(this.controller, 'matriculados'), { params: params});
   }
 }
