@@ -49,6 +49,7 @@
                                             <div class="card col-md-3"
                                                 *ngFor="let archivo of modulo.archivos">
                                                 <div class="card-body">
+                                                    <button class="btn btn-danger float-right btn-sm" (click)="borrarArchivo(modulo, archivo.id_archivos)"><i class="fas fa-trash-alt"></i></button>
                                                     <a
                                                         href="http://localhost/api-sga/public/archivos/{{archivo.filename}}">
                                                         <img class="img-fluid" src="assets/imgs/file.png" alt="">

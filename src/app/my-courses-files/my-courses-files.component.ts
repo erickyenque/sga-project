@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ifError } from 'assert';
 import { MateriasService } from '../services/materias.service';
 import StorageEnum from '../types/enumeration/StorageEnum';
 import { ModuloRequest } from '../types/request/ModuloRequest';
 import { LoginResponse } from '../types/response/LoginResponse';
 import { ModulosResponse } from '../types/response/ModulosResponse';
 import Storage from '../utils/Storage';
+import * as toastr from 'toastr';
 
 @Component({
   selector: 'app-my-courses-files',
@@ -104,6 +104,15 @@ export class MyCoursesFilesComponent implements OnInit {
 
   getSession() {
     this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
+  }
+
+  borrarArchivo(modulo: ModulosResponse, id_archivo) {
+    this.materiaService.borrarArchivo(id_archivo).subscribe(data => {
+      toastr.success("Archivo borrado!");
+      modulo.archivos = modulo.archivos.filter(archivo => archivo.id_archivos !=  id_archivo);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

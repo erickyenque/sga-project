@@ -19,14 +19,12 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Apellido Paterno</label>
-                    <input type="text" class="form-control" placeholder="---"
-                        [(ngModel)]="user.apePaterno" disabled>
+                    <input type="text" class="form-control" placeholder="---" [(ngModel)]="user.apePaterno" disabled>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Apellido Materno</label>
-                    <input type="text" class="form-control" placeholder="---"
-                        [(ngModel)]="user.apeMaterno" disabled>
-                </div>                             
+                    <input type="text" class="form-control" placeholder="---" [(ngModel)]="user.apeMaterno" disabled>
+                </div>
             </div>
         </div>
     </div>
@@ -38,7 +36,8 @@
                     <h3>Resultados</h3>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary float-right" (click)="generarPdf()" *ngIf="showButton">Generar Pdf</button>
+                    <button class="btn btn-primary float-right" (click)="generarPdf()" *ngIf="showButton">Generar
+                        Pdf</button>
                 </div>
             </div>
         </div>
@@ -59,8 +58,28 @@
                         <td>{{materia.calificacion}}</td>
                         <td>{{materia.fecha}}</td>
                     </tr>
-                </tbody>  
+                </tbody>
             </table>
         </div>
     </div>
+
+    <div class="card card-success" id="grafico" *ngIf="showGrafico">
+        <div class="card-header">
+            <h3 class="card-title">Gráfico de Notas</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                        class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="chart">
+                <canvas id="barChart" style="height:230px; min-height:230px"></canvas>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <img src="" alt="" id="imagen">
 </div>

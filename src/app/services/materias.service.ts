@@ -102,4 +102,9 @@ export class MateriasService {
     const params = new HttpParams().set('patron', patron);
     return this.http.get<SgaResponse<FileResponse>>(ServerConfig.getUrl(this.controller, 'buscarArchivos'), { params: params});
   }
+
+  borrarArchivo(id_archivo) {
+    const params = new HttpParams().set('id_archivo', id_archivo);
+    return this.http.get<SgaResponse<FileResponse>>(ServerConfig.getUrl(this.controller, 'borrarArchivo'), { params: params});
+  }
 }
