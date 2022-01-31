@@ -12,16 +12,18 @@
                             <p *ngIf="login.role === 'ESTUDIANTE' || login.role === 'DOCENTE'">Panel Bienvenida</p>
                         </a>
                     </li>
-                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
-                        <a href="users/management" class="nav-link" *ngIf="login.role === 'DIRECTOR'">
+                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR'">
+                        <a href="users/management" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>Gestionar Usuarios</p>
                         </a>
-                        <a href="users/management" class="nav-link" *ngIf="login.role === 'SECRETARIA'">
+                    </li> 
+                    <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
+                        <a href="users2/management" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>Gestionar Estudiantes</p>
                         </a>
-                    </li>                    
+                    </li>                       
                     <li class="nav-item" *ngIf="login.role === 'DIRECTOR' || login.role === 'SECRETARIA'">
                         <a href="students/management" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>

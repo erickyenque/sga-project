@@ -32,6 +32,9 @@ import { NotasEstudianteComponent } from '../notas-estudiante/notas-estudiante.c
 import { ReporteMatriculadosComponent } from '../reporte-matriculados/reporte-matriculados.component';
 import { ReporteNotasComponent } from '../reporte-notas/reporte-notas.component';
 import { GApafaComponent } from '../g-apafa/g-apafa.component';
+import { Users2Component } from '../users2/users2.component';
+import { GUsers2Component } from '../g-users2/g-users2.component';
+import { EditUsers2Component } from '../edit-users2/edit-users2.component';
 
 const routes: Routes = [
   {
@@ -82,6 +85,21 @@ const routes: Routes = [
       },
       {
         path: 'edit/:id', component: EditUsersComponent
+      }
+    ],
+  },
+  {
+    path: 'users2', component: DashboardComponent,
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: 'add', component: Users2Component
+      },
+      {
+        path: 'management', component: GUsers2Component
+      },
+      {
+        path: 'edit/:id', component: EditUsers2Component
       }
     ],
   },

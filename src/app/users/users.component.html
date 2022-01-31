@@ -46,9 +46,8 @@
                 <div class="form-group col-md-6">
                     <label>Rol</label>
                     <select class="form-control" [(ngModel)]="user.role">
-                      <option value="SECRETARIA" *ngIf="login.role !== 'SECRETARIA'">SECRETARIA</option>
-                      <option value="DOCENTE" *ngIf="login.role !== 'SECRETARIA'">DOCENTE</option>
-                      <option value="ESTUDIANTE" *ngIf="login.role == 'SECRETARIA'">ESTUDIANTE</option>
+                      <option value="SECRETARIA">SECRETARIA</option>
+                      <option value="DOCENTE">DOCENTE</option>
                     </select>
                 </div>
                 <div class="col-md-12">

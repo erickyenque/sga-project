@@ -7,12 +7,13 @@ import Storage from '../utils/Storage';
 declare var $: any;
 import * as toastr from 'toastr';
 
+
 @Component({
-  selector: 'app-g-users',
-  templateUrl: './g-users.component.html',
-  styleUrls: ['./g-users.component.css']
+  selector: 'app-g-users2',
+  templateUrl: './g-users2.component.html',
+  styleUrls: ['./g-users2.component.css']
 })
-export class GUsersComponent implements OnInit {
+export class GUsers2Component implements OnInit {
 
   users: UserResponse[];
 
@@ -57,7 +58,7 @@ export class GUsersComponent implements OnInit {
   }
 
   getList() {
-    this.userService.listUsuarios().subscribe(response => {
+    this.userService.listEstudiantes2().subscribe(response => {
       if(response.success) {
         this.users = response.data;
         this.setConfigM();
@@ -82,4 +83,5 @@ export class GUsersComponent implements OnInit {
       }
     })
   }
+
 }

@@ -47,6 +47,9 @@ import { NotasEstudianteComponent } from './notas-estudiante/notas-estudiante.co
 import { ReporteNotasComponent } from './reporte-notas/reporte-notas.component';
 import { ReporteMatriculadosComponent } from './reporte-matriculados/reporte-matriculados.component';
 import { GApafaComponent } from './g-apafa/g-apafa.component';
+import { Users2Component } from './users2/users2.component';
+import { GUsers2Component } from './g-users2/g-users2.component';
+import { EditUsers2Component } from './edit-users2/edit-users2.component';
 
 
 @NgModule({
@@ -89,7 +92,10 @@ import { GApafaComponent } from './g-apafa/g-apafa.component';
     NotasEstudianteComponent,
     ReporteNotasComponent,
     ReporteMatriculadosComponent,
-    GApafaComponent
+    GApafaComponent,
+    Users2Component,
+    GUsers2Component,
+    EditUsers2Component
   ],
   imports: [
     BrowserModule,
