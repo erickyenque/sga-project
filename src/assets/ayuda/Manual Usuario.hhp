@@ -1,0 +1,11 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Manual Usuario.chm
+Contents file=Acerca de.hhc
+Display compile progress=No
+Index file=Index.hhk
+Language=0x280a Español (Perú)
+
+
+[INFOTYPES]
+
