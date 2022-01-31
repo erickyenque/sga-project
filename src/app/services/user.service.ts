@@ -104,4 +104,11 @@ export class UserService {
     const params = new HttpParams().set('id_estudiante', id_estudiante);
     return this.http.get<SgaResponse<NotasResponse>>(ServerConfig.getUrl(this.controller, 'notasMaterias'), { params: params });
   }
+
+  cambiarRol(user: UserResponse) {
+    const formData = new FormData();
+    formData.append('id_usuario', user.id_usuario);
+    formData.append('role', user.role);
+    return this.http.post<SgaResponse<any>>(ServerConfig.getUrl(this.controller, 'cambiarRol'), formData);
+  }
 }

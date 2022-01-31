@@ -9,5 +9,7 @@ export interface UserResponse {
     referencia: string,
     genero: string,
     estado: string,
-    fecha_registro: string
+    fecha_registro: string,
+    role?: string,
+    id_usuario?: string
 }

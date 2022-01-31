@@ -5,6 +5,7 @@ import { LoginResponse } from '../types/response/LoginResponse';
 import { UserResponse } from '../types/response/UserResponse';
 import Storage from '../utils/Storage';
 declare var $: any;
+import * as toastr from 'toastr';
 
 @Component({
   selector: 'app-g-users',
@@ -13,9 +14,28 @@ declare var $: any;
 })
 export class GUsersComponent implements OnInit {
 
-  users: UserResponse[]
+  users: UserResponse[];
 
   login: LoginResponse;
+
+  showDialog: boolean = false;
+  tDialog: string = "";
+
+  userSelected: UserResponse = {
+    dni: "",
+    nombres: "",
+    apePaterno: "",
+    apeMaterno: "",
+    direccion: "",
+    referencia: "",
+    genero: "",
+    id_persona: "",
+    estado: "",
+    fecha_registro: "",
+    nacimiento: "",
+    role: "",
+    id_usuario: ""
+  };
 
   constructor(
     private userService: UserService,
@@ -56,5 +76,19 @@ export class GUsersComponent implements OnInit {
 
   getSession() {
     this.login = JSON.parse(this.storage.getItem(StorageEnum.SESSION_SGA));
+  }
+
+  abrirModal(user: UserResponse) {
+    this.userSelected = user;
+    this.showDialog = !this.showDialog;
+  }
+
+  cambiarRol() {
+    this.userService.cambiarRol(this.userSelected).subscribe(response => {
+      if(response.success) {
+        this.showDialog = !this.showDialog;
+        toastr.success("Usuario actualizado!");
+      }
+    })
   }
 }

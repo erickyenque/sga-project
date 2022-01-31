@@ -23,7 +23,7 @@
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Dirección</th>
-                        <th>Fecha Registro</th>
+                        <th *ngIf="login.role == 'DIRECTOR'">Rol</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
@@ -33,10 +33,11 @@
                         <td>{{user.nombres}}</td>
                         <td>{{user.apePaterno}} {{user.apeMaterno}}</td>
                         <td>{{user.direccion}}</td>
-                        <td>{{user.fecha_registro}}</td>
+                        <td *ngIf="login.role == 'DIRECTOR'">{{user.role}}</td>
                         <td>
                             <a class="btn btn-info" href="/users/edit/{{user.id_persona}}"><i
                                     class="fas fa-edit"></i></a>
+                            <button class="btn btn-warning ml-2" (click)="abrirModal(user)"><i class="fas fa-user-tag"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -44,4 +45,23 @@
         </div>
         <!-- /.card-body -->
     </div>
+
+    <app-dialog [(visible)]="showDialog" [width]="40" [height]="30" [headerColor]="'#343A40'" [resizable]=false>
+        <dialog-header class="text-white">Cambiar Rol</dialog-header>
+        <dialog-body>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <select class="form-control mt-2 mb-5" [(ngModel)]="userSelected.role">
+                            <option value="SECRETARIA" *ngIf="login.role !== 'SECRETARIA'">SECRETARIA</option>
+                            <option value="DOCENTE" *ngIf="login.role !== 'SECRETARIA'">DOCENTE</option>
+                            <option value="ESTUDIANTE" *ngIf="login.role == 'SECRETARIA'">ESTUDIANTE</option>
+                          </select>
+                        <button class="btn btn-secondary mr-2" (click)="showDialog = !showDialog">Cerrar</button>
+                        <button class="btn btn-success ml-2" (click)="cambiarRol()">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </dialog-body>
+    </app-dialog>
 </div>
