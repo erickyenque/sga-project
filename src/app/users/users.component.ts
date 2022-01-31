@@ -54,13 +54,23 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  validarCampos() {
+    return this.user.dni.trim() !== "" && this.user.nombres.trim() !== "" && this.user.apePaterno.trim() !== "" &&
+            this.user.apeMaterno.trim() !== "" && this.user.direccion.trim() !== "" && this.user.referencia.trim() !== "" &&
+            this.user.nickname.trim() !== "" && this.user.password.trim() !== "" && this.user.role.trim() !== "";
+  }
+
   addUser() {
-    this.userService.addUsuario(this.user).subscribe(response => {
-      if(response.success) {
-        toastr.success("Usuario agregado!");
-        this.clearFields();
-      }
-    });
+    if(this.validarCampos()) {
+      this.userService.addUsuario(this.user).subscribe(response => {
+        if(response.success) {
+          toastr.success("Usuario agregado!");
+          this.clearFields();
+        }
+      });
+    } else {
+      toastr.info("Complete campos vacíos");
+    }
   }
 
   getSession() {

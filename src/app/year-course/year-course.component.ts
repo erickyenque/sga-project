@@ -72,16 +72,25 @@ export class YearCourseComponent implements OnInit {
     this.materiaYear.cod_materia = "";
   }
 
+  validarCampos() {
+    return this.materiaYear.id_anio.trim() !== "" && this.materiaYear.cod_materia.trim() !== "" && this.materiaYear.dia.trim() !== "" &&
+      this.materiaYear.hora_inicio.trim() !== "" && this.materiaYear.hora_fin.trim() !== "";
+  }
+
   addMateriaYear() {
     this.materiaYear.hora_inicio = $("#timepicker1").find("input").val();
     this.materiaYear.hora_fin = $("#timepicker2").find("input").val();
-    this.materiYearService.addMateriaYear(this.materiaYear).subscribe(response => {
-      if (response.success) {
-        toastr.success('Año agregado!');
-        this.clearFields();
-      } else {
-        toastr.error('Error al guardar');
-      }
-    })
+    if (this.validarCampos()) {
+      this.materiYearService.addMateriaYear(this.materiaYear).subscribe(response => {
+        if (response.success) {
+          toastr.success('Año agregado!');
+          this.clearFields();
+        } else {
+          toastr.error('Error al guardar');
+        }
+      })
+    } else {
+      toastr.info("Complete campos vacíos");
+    }
   }
 }

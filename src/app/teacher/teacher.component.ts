@@ -61,13 +61,21 @@ export class TeacherComponent implements OnInit {
     this.teacherYear.id_docente = "";
   }
 
+  validarCampos() {
+    return this.teacherYear.id_anio.trim() !== "" && this.teacherYear.id_anio_materia.trim() !== "" && this.teacherYear.id_docente.trim() !== "";
+  }
+
   addTeacherYear() {
-    this.teacherYearService.addTeacherYear(this.teacherYear).subscribe(response => {
-      if (response.success) {
-        toastr.success("Usuario agregado!");
-        this.clearFields();
-      }
-    })
+    if (this.validarCampos()) {
+      this.teacherYearService.addTeacherYear(this.teacherYear).subscribe(response => {
+        if (response.success) {
+          toastr.success("Usuario agregado!");
+          this.clearFields();
+        }
+      })
+    } else {
+      toastr.info("Complete campos vacíos");
+    }
   }
 
   onChange($event) {

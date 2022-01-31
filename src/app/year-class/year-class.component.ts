@@ -35,14 +35,23 @@ export class YearClassComponent implements OnInit {
     }
   }
 
+  validarCampos() {
+    return this.year.nombre.trim() !== "" && this.year.numero.trim() !== "" && this.year.seccion.trim() !== "" &&
+    this.year.turno.trim() !== "" && this.year.nivel.trim() !== "";
+  }
+
   addYear() {
-    this.anioService.addAnio(this.year).subscribe(response => {
-      if (response.success) {
-        toastr.success('Año agregado!');
-        this.clearFields();
-      } else {
-        toastr.error('Error al guardar');
-      }
-    })
+    if (this.validarCampos()) {
+      this.anioService.addAnio(this.year).subscribe(response => {
+        if (response.success) {
+          toastr.success('Año agregado!');
+          this.clearFields();
+        } else {
+          toastr.error('Error al guardar');
+        }
+      })
+    } else {
+      toastr.info("Complete campos vacíos");
+    }
   }
 }

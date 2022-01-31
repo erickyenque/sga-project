@@ -32,6 +32,8 @@ export class StudentComponent implements OnInit {
     monto: 0
   }
 
+  disabled: boolean = true;
+
   constructor(
     private userService: UserService,
     private anioSerive: AnioService,
@@ -55,11 +57,19 @@ export class StudentComponent implements OnInit {
   }
 
   buscarEstudiante() {
-    this.userService.datosUsuarioxDni(this.user.dni).subscribe(response => {
-      if (response.success) {
-        this.user = response.data[0];
-      }
-    })
+    if (this.user.dni.trim() !== "") {
+      this.userService.datosUsuarioxDni(this.user.dni).subscribe(response => {
+        if (response.success) {
+          this.user = response.data[0];
+          this.disabled = false;
+        } else {
+          toastr.info("Estudiante no encontrado");
+          this.disabled = true;
+        }
+      })
+    } else {
+      toastr.info("Ingrese dni");
+    }
   }
 
   clearFields() {
@@ -77,21 +87,30 @@ export class StudentComponent implements OnInit {
     }
   }
 
+  validarCampos(student: MatricularRequest) {
+    return student.id_estudiante !== "" && student.id_anio !== "" && student.pago !== "" &&
+      student.estado !== "";
+  }
+
   finalizarMatricula() {
     let student: MatricularRequest = {
       id_estudiante: this.user.id_persona.toString(),
       id_anio: this.user.id_anio,
       monto: this.user.monto,
       pago: this.user.pago,
-      estado: this.user.pago == '0'? 'PENDIENTE': 'MATRICULADO'
+      estado: this.user.pago == '0' ? 'PENDIENTE' : 'MATRICULADO'
     }
-    this.matriculaService.matricularEstudiante(student).subscribe(response => {
-      if (response.success) {
-        toastr.success("Matricula exitosa!");
-        this.clearFields();
-      } else {
-        toastr.error("Hubo un problema!");
-      }
-    })
+    if (this.validarCampos(student)) {
+      this.matriculaService.matricularEstudiante(student).subscribe(response => {
+        if (response.success) {
+          toastr.success("Matricula exitosa!");
+          this.clearFields();
+        } else {
+          toastr.error("Hubo un problema!");
+        }
+      })
+    } else {
+      toastr.info("Complete campos vacíos");
+    }
   }
 }
