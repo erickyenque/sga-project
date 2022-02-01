@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="form-group col-md-8">
                     <label>AÑO</label>
-                    <select class="form-control" [(ngModel)]="id_anio">
+                    <select class="form-control" [(ngModel)]="id_anio" (change)="seleccionar($event)">
                         <option [value]="year.id_anio" *ngFor="let year of years">{{year.nombre}} - {{year.turno}} -
                             - {{year.numero}} - {{year.seccion}} - {{year.nivel}} </option>
                     </select>
@@ -15,6 +15,12 @@
                 <div class="form-group col-md-4">
                     <label>Opción</label>
                     <button class="form-control btn btn-primary" (click)="buscar()">Buscar</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="float-right">{{tiempo}}</p>
                 </div>
             </div>
 

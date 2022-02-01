@@ -6,6 +6,7 @@ import { YearResponse } from '../types/response/YearReponse';
 import * as toastr from 'toastr';
 import { MatriculaService } from '../services/matricula.service';
 import { MatricularRequest } from '../types/request/MatricularRequest';
+declare var moment: any;
 
 @Component({
   selector: 'app-student',
@@ -33,6 +34,13 @@ export class StudentComponent implements OnInit {
   }
 
   disabled: boolean = true;
+
+  // Para calcular los tiempos de consulta
+  tiempo_inicio: string;
+  tiempo_fin: string;
+  tiempo: string = "";
+
+  presionado: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -102,6 +110,9 @@ export class StudentComponent implements OnInit {
     }
     if (this.validarCampos(student)) {
       this.matriculaService.matricularEstudiante(student).subscribe(response => {
+        this.tiempo_fin = moment().format("hh:mm:ss:SSS");
+        console.log("Captura de fin tiempo: ", this.tiempo_fin);
+        this.diferenciaTiempo();
         if (response.success) {
           toastr.success("Matricula exitosa!");
           this.clearFields();
@@ -113,4 +124,25 @@ export class StudentComponent implements OnInit {
       toastr.info("Complete campos vacíos");
     }
   }
+
+  seleccionar($event) {
+    if (!this.presionado || this.user.dni.length === 1) {
+      this.tiempo_inicio = moment().format("hh:mm:ss:SSS");
+      console.log("Captura de inicio tiempo: ", this.tiempo_inicio);
+      this.presionado = true;
+    }
+  }
+
+  diferenciaTiempo() {
+    var day1 = moment().zone('GMT');
+    var splitTime1 = this.tiempo_inicio.split(/:/);
+    day1.hours(parseInt(splitTime1[0])).minutes(parseInt(splitTime1[1])).seconds(parseInt(splitTime1[2])).milliseconds(parseInt(splitTime1[3]));
+    
+    var day2 = moment().zone('GMT');
+    var splitTime2 = this.tiempo_fin.split(/:/);
+    day2.hours(parseInt(splitTime2[0])).minutes(parseInt(splitTime2[1])).seconds(parseInt(splitTime2[2])).milliseconds(parseInt(splitTime2[3]));
+  
+    let miliseconds = day2.diff(day1, 'miliseconds');
+    this.tiempo = `Tiempo de registro de matrícula: ${miliseconds/1000}  segundos`;
+  } 
 }

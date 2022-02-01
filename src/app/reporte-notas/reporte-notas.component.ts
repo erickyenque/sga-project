@@ -6,6 +6,7 @@ import * as html2pdf from 'html2pdf.js';
 declare var $: any;
 declare var Chart: any;
 import * as toastr from 'toastr';
+declare var moment: any;
 
 @Component({
   selector: 'app-reporte-notas',
@@ -35,6 +36,13 @@ export class ReporteNotasComponent implements OnInit {
 
   showGrafico = false;
 
+  // Para calcular los tiempos de consulta
+  tiempo_inicio: string;
+  tiempo_fin: string;
+  tiempo: string = "";
+
+  presionado: boolean = false;
+
   constructor(
     private userService: UserService
   ) { }
@@ -43,7 +51,7 @@ export class ReporteNotasComponent implements OnInit {
   }
 
   buscarEstudiante() {
-    this.userService.datosUsuarioxDni(this.user.dni).subscribe(response => {
+    this.userService.datosUsuarioxDni(this.user.dni).subscribe(response => {      
       if (response.success) {
         this.user = response.data[0];
         this.notasMaterias();
@@ -128,6 +136,10 @@ export class ReporteNotasComponent implements OnInit {
 
   chart(notas: NotasResponse[]) {
 
+    this.tiempo_fin = moment().format("hh:mm:ss:SSS");
+    console.log("Captura de fin tiempo: ", this.tiempo_fin);
+    this.diferenciaTiempo();
+
     let _labels = [];
     notas.forEach(nota => _labels.push(nota.nombre));
     let _data = [];
@@ -173,5 +185,26 @@ export class ReporteNotasComponent implements OnInit {
     })
 
   }
+
+  seleccionar($event) {
+    if (!this.presionado || this.user.dni.length === 1) {
+      this.tiempo_inicio = moment().format("hh:mm:ss:SSS");
+      console.log("Captura de inicio tiempo: ", this.tiempo_inicio);
+      this.presionado = true;
+    }
+  }
+
+  diferenciaTiempo() {
+    var day1 = moment().zone('GMT');
+    var splitTime1 = this.tiempo_inicio.split(/:/);
+    day1.hours(parseInt(splitTime1[0])).minutes(parseInt(splitTime1[1])).seconds(parseInt(splitTime1[2])).milliseconds(parseInt(splitTime1[3]));
+    
+    var day2 = moment().zone('GMT');
+    var splitTime2 = this.tiempo_fin.split(/:/);
+    day2.hours(parseInt(splitTime2[0])).minutes(parseInt(splitTime2[1])).seconds(parseInt(splitTime2[2])).milliseconds(parseInt(splitTime2[3]));
+  
+    let miliseconds = day2.diff(day1, 'miliseconds');
+    this.tiempo = `Tiempo de elaboración de reportes: ${miliseconds/1000}  segundos`;
+  }  
 
 }
